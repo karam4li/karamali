@@ -1,0 +1,15 @@
+# Exclude build dependencies and runtimes from static asset upload
+node_modules
+node_modules/
+.git
+.git/
+.wrangler
+.wrangler/
+.github
+.github/
+
+# Exclude package and meta files
+package.json
+package-lock.json
+README.md
+DESIGN.md
