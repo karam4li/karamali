@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum Vitae — Mohammed Ali</title>
+  <link rel="stylesheet" href="../tokens/variables.css">
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <script src="../components/ecosystem-nav.js"></script>
+  <style>
+    body {
+      background-color: var(--press-bg);
+      color: var(--press-text-primary);
+      font-family: var(--press-font-sans);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .font-serif-press { font-family: var(--press-font-serif); }
+    .font-mono-press { font-family: var(--press-font-mono); }
+    .press-card {
+      background-color: var(--press-bg-card);
+      border: 1px solid var(--press-border);
+      border-radius: var(--press-radius-lg);
+    }
+    @media print {
+      press-nav, .no-print { display: none !important; }
+      body { background: white !important; color: black !important; padding: 0 !important; }
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased">
+
+  <!-- Universal Navigation Bar -->
+  <press-nav active="cv" domain="karamali.org"></press-nav>
+
+  <main class="max-w-4xl mx-auto px-6 py-12 md:py-16 space-y-12">
+    
+    <!-- CV Header -->
+    <header class="flex flex-col md:flex-row md:items-end justify-between pb-8 border-b-2 border-[var(--press-text-primary)] gap-6">
+      <div class="space-y-2">
+        <h1 class="text-3xl md:text-5xl font-serif-press font-semibold tracking-tight text-[var(--press-text-primary)]">
+          Mohammed Ali
+        </h1>
+        <div class="text-base md:text-lg font-serif-press italic text-[var(--press-text-secondary)]">
+          Senior Data Scientist &amp; Machine Learning Systems Engineer
+        </div>
+        <div class="flex flex-wrap items-center gap-3 pt-2 text-xs font-mono-press text-[var(--press-text-secondary)]">
+          <span>ali207715@gmail.com</span>
+          <span>•</span>
+          <a href="https://github.com/karam4li" class="text-[var(--press-primary)] hover:underline">github.com/karam4li</a>
+          <span>•</span>
+          <span>London, UK / Remote</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 no-print">
+        <button onclick="window.print()" class="inline-flex items-center gap-2 bg-[var(--press-primary)] hover:bg-[var(--press-primary-hover)] text-white text-xs font-medium px-4 py-2 rounded-lg transition shadow-xs">
+          <span>↓ Download PDF</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Executive Summary -->
+    <section class="space-y-3">
+      <h2 class="text-xs font-mono-press uppercase tracking-widest text-[var(--press-primary)] font-semibold">
+        01 // Executive Profile
+      </h2>
+      <p class="font-serif-press text-lg text-[var(--press-text-primary)] leading-relaxed max-w-3xl">
+        Data Scientist and Systems Engineer specializing in distributed database architectures, vector retrieval pipelines, and high-performance ML inference optimization. 7+ years architecting fault-tolerant backend infrastructure, training domain-specific language models, and scaling real-time ingestion pipelines processing millions of daily embedding operations.
+      </p>
+    </section>
+
+    <!-- Core Technical Matrix -->
+    <section class="space-y-4">
+      <h2 class="text-xs font-mono-press uppercase tracking-widest text-[var(--press-primary)] font-semibold">
+        02 // Technical Competencies
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs font-mono-press">
+        <div class="press-card p-4 space-y-1.5">
+          <div class="font-bold text-[var(--press-primary)]">LANGUAGES</div>
+          <div class="text-[var(--press-text-secondary)]">Python, Rust, C++, SQL, TypeScript, Bash</div>
+        </div>
+        <div class="press-card p-4 space-y-1.5">
+          <div class="font-bold text-[var(--press-primary)]">ML &amp; AI SYSTEMS</div>
+          <div class="text-[var(--press-text-secondary)]">PyTorch, TensorRT-LLM, vLLM, HuggingFace, CUDA, ONNX</div>
+        </div>
+        <div class="press-card p-4 space-y-1.5">
+          <div class="font-bold text-[var(--press-primary)]">DATABASES &amp; STORAGE</div>
+          <div class="text-[var(--press-text-secondary)]">PostgreSQL, pgvector, Qdrant, Redis, Apache Arrow, RocksDB</div>
+        </div>
+        <div class="press-card p-4 space-y-1.5">
+          <div class="font-bold text-[var(--press-primary)]">INFRASTRUCTURE</div>
+          <div class="text-[var(--press-text-secondary)]">Docker, Kubernetes, Kafka, Ray Cluster, Linux Kernel tuning</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="space-y-6">
+      <h2 class="text-xs font-mono-press uppercase tracking-widest text-[var(--press-primary)] font-semibold">
+        03 // Professional Experience
+      </h2>
+
+      <div class="space-y-8">
+        
+        <!-- Role 1 -->
+        <div class="space-y-2 border-l-2 border-[var(--press-border)] pl-5 relative">
+          <div class="w-2.5 h-2.5 rounded-full bg-[var(--press-primary)] absolute -left-[6px] top-1"></div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+            <h3 class="text-xl font-serif-press font-semibold text-[var(--press-text-primary)]">
+              Lead Machine Learning Systems Architect
+            </h3>
+            <span class="text-xs font-mono-press text-[var(--press-text-secondary)]">2023 — Present</span>
+          </div>
+          <div class="text-sm font-serif-press italic text-[var(--press-primary)]">
+            Distributed Systems &amp; Neural Compute Lab
+          </div>
+          <ul class="font-serif-press text-base text-[var(--press-text-primary)] space-y-2 pt-2 leading-relaxed list-disc pl-4">
+            <li>Designed and deployed a distributed vector embedding index handling <strong>4.2M daily queries</strong> with sub-8ms P99 latency utilizing pgvector and custom HNSW quantization layers.</li>
+            <li>Reduced GPU cluster compute expenditures by <strong>38%</strong> by introducing dynamic continuous batching and FP8 speculative decoding across vLLM inference worker nodes.</li>
+            <li>Architected Change-Data-Capture (CDC) streaming pipeline with Apache Kafka and Rust consumers, achieving zero data loss across multi-region PostgreSQL clusters.</li>
+          </ul>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="space-y-2 border-l-2 border-[var(--press-border)] pl-5 relative">
+          <div class="w-2.5 h-2.5 rounded-full bg-[var(--press-border)] absolute -left-[6px] top-1"></div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+            <h3 class="text-xl font-serif-press font-semibold text-[var(--press-text-primary)]">
+              Senior Data Scientist &amp; Backend Engineer
+            </h3>
+            <span class="text-xs font-mono-press text-[var(--press-text-secondary)]">2020 — 2023</span>
+          </div>
+          <div class="text-sm font-serif-press italic text-[var(--press-primary)]">
+            Enterprise Cognitive Platforms Inc.
+          </div>
+          <ul class="font-serif-press text-base text-[var(--press-text-primary)] space-y-2 pt-2 leading-relaxed list-disc pl-4">
+            <li>Engineered an end-to-end automated ML pipeline for time-series anomaly detection across 12,000 IoT sensors, achieving 96.2% precision on critical hardware fault prediction.</li>
+            <li>Refactored legacy MySQL analytical queries to columnar ClickHouse tables, dropping aggregate dashboard report generation times from 45 seconds to <strong>320 milliseconds</strong>.</li>
+            <li>Mentored junior machine learning engineers and authored team engineering standards for model validation, data version control (DVC), and CI/CD testing.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Selected Publications -->
+    <section class="space-y-4">
+      <h2 class="text-xs font-mono-press uppercase tracking-widest text-[var(--press-primary)] font-semibold">
+        04 // Publications &amp; Technical Reports
+      </h2>
+      <div class="press-card p-5 space-y-3 font-serif-press">
+        <div class="text-base text-[var(--press-text-primary)] leading-normal">
+          <strong>Ali, M.</strong> (2026). "On the Geometric Constraints of Latent Space Projections in High-Dimension Mixture Models." <em>Journal of Machine Learning Systems &amp; Neural Hardware</em>, Vol. 14, pp. 112–128.
+        </div>
+        <div class="flex items-center gap-3 text-xs font-mono-press">
+          <a href="#" class="text-[var(--press-primary)] hover:underline">DOI: 10.1042/jmls.2026.42</a>
+          <span>•</span>
+          <span class="text-[var(--press-text-secondary)]">Code: github.com/karam4li/latent-projections</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="space-y-3">
+      <h2 class="text-xs font-mono-press uppercase tracking-widest text-[var(--press-primary)] font-semibold">
+        05 // Education
+      </h2>
+      <div class="flex justify-between items-baseline text-sm font-serif-press">
+        <div>
+          <span class="font-bold text-[var(--press-text-primary)]">Master of Science in Computer Science (Machine Learning &amp; Distributed Systems)</span>
+          <div class="italic text-[var(--press-text-secondary)]">Distinction Honor • Thesis on Columnar Storage Vector Compression</div>
+        </div>
+        <span class="font-mono-press text-xs text-[var(--press-text-secondary)]">2018 — 2020</span>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

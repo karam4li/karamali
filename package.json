@@ -1,0 +1,22 @@
+{
+  "name": "@ali/design-system",
+  "version": "1.0.0",
+  "description": "The Quiet Press: Computational Editorial design system inspired by Anthropic. Reusable across web and mobile subdomains.",
+  "main": "tokens/tokens.json",
+  "style": "tokens/variables.css",
+  "exports": {
+    ".": "./tokens/tokens.json",
+    "./css": "./tokens/variables.css",
+    "./tailwind": "./tailwind/preset.js",
+    "./mobile": "./tokens/mobile.ts"
+  },
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "anthropic",
+    "computational-editorial",
+    "tailwind-preset"
+  ],
+  "author": "Ali",
+  "license": "MIT"
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Example — The Quiet Press</title>
+  <link rel="stylesheet" href="../tokens/variables.css">
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <script src="../components/ecosystem-nav.js"></script>
+  <style>
+    body {
+      background-color: var(--press-bg);
+      color: var(--press-text-primary);
+      font-family: var(--press-font-sans);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .font-serif-press { font-family: var(--press-font-serif); }
+    .font-mono-press { font-family: var(--press-font-mono); }
+    .press-card {
+      background-color: var(--press-bg-card);
+      border: 1px solid var(--press-border);
+      border-radius: var(--press-radius-lg);
+    }
+    .prose-content p {
+      font-family: var(--press-font-serif);
+      font-size: 1.125rem;
+      line-height: 1.75;
+      color: var(--press-text-primary);
+      margin-bottom: 1.5rem;
+    }
+    .prose-content h2 {
+      font-family: var(--press-font-serif);
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--press-text-primary);
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased">
+
+  <!-- Universal Ecosystem Bar -->
+  <press-nav active="research" domain="karamali.org"></press-nav>
+
+  <article class="max-w-3xl mx-auto px-6 py-12 md:py-20 space-y-8">
+    
+    <!-- Meta Header -->
+    <header class="space-y-4 pb-8 border-b border-[var(--press-border)]">
+      <div class="flex items-center gap-2 text-xs font-mono-press text-[var(--press-primary)] uppercase tracking-wider font-semibold">
+        <span>Systems &amp; Architecture</span>
+        <span>•</span>
+        <span>Paper Review 07</span>
+      </div>
+
+      <h1 class="text-3xl md:text-5xl font-serif-press font-semibold tracking-tight text-[var(--press-text-primary)] leading-[1.15]">
+        Why Distributed Key-Value Stores Keep Re-Inventing LSM-Trees
+      </h1>
+
+      <p class="font-serif-press italic text-xl text-[var(--press-text-secondary)] leading-relaxed">
+        A deep-dive into write amplification, NVMe queue depths, and why tiered compaction remains the king of high-throughput vector and tabular ingestion.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-between gap-4 pt-4 text-xs font-mono-press text-[var(--press-text-secondary)]">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-[var(--press-primary-subtle)] text-[var(--press-primary)] border border-[var(--press-primary)]/20 flex items-center justify-center font-bold">
+            MA
+          </div>
+          <div>
+            <div class="font-medium text-[var(--press-text-primary)]">Mohammed Ali</div>
+            <div class="text-[11px]">Sept 26, 2026 • 9 min read</div>
+          </div>
+        </div>
+
+        <div class="flex gap-2">
+          <span class="px-2.5 py-1 rounded bg-[var(--press-bg-subtle)] text-[var(--press-text-secondary)] border border-[var(--press-border)] text-[11px]">#databases</span>
+          <span class="px-2.5 py-1 rounded bg-[var(--press-bg-subtle)] text-[var(--press-text-secondary)] border border-[var(--press-border)] text-[11px]">#storage-engines</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Prose Content -->
+    <div class="prose-content">
+      <p>
+        In modern database engineering, there is an unspoken law of storage engines: every system designed to accept heavy writes either starts with a Log-Structured Merge-tree (LSM-tree), or eventually rewrites its storage engine to behave like one.
+      </p>
+
+      <p>
+        Traditional B-trees, despite their legendary read efficiency and predictable point-lookup latency, suffer from an inherent architectural curse when exposed to contemporary SSDs: <strong>random in-place overwrites</strong>. When a transaction updates a single 64-byte row, the database must write an entire 4KB or 8KB page back to the operating system's page cache.
+      </p>
+
+      <!-- Scholarly Pull Quote -->
+      <div class="my-8 border-l-2 border-[var(--press-primary)] pl-5 py-2 italic font-serif-press text-lg text-[var(--press-text-primary)] bg-[var(--press-primary-subtle)]/40 rounded-r-lg">
+        "Write amplification is not merely an abstract performance penalty; on modern NVMe drives under 50k QPS ingestion, it is the fundamental ceiling governing drive endurance and tail latency."
+      </div>
+
+      <h2>The Geometry of Write Amplification</h2>
+
+      <p>
+        LSM-trees solve this by transforming all random updates into sequential log appends. Incoming writes are staged in an in-memory skip-list (the <code>MemTable</code>) while being mirrored to a Write-Ahead Log (WAL) for durability.
+      </p>
+
+      <!-- Code Snippet Container -->
+      <div class="press-card overflow-hidden my-6 font-mono-press text-xs">
+        <div class="bg-[var(--press-bg-subtle)] px-4 py-2 border-b border-[var(--press-border)] flex items-center justify-between text-[11px] text-[var(--press-text-secondary)]">
+          <span>rust // engine/memtable_flush.rs</span>
+          <span class="text-[var(--press-primary)]">SSTable Generation</span>
+        </div>
+        <pre class="p-4 overflow-x-auto leading-relaxed text-[var(--press-text-primary)]"><code><span class="text-[var(--press-primary)]">pub fn</span> flush_immutable_memtable(
+    memtable: &amp;Arc&lt;MemTable&gt;,
+    l0_dest: &amp;Path,
+) -&gt; Result&lt;SSTableManifest&gt; {
+    <span class="text-[var(--press-text-secondary)]">// 1. Encode keys and values into contiguous block format</span>
+    <span class="text-[var(--press-primary)]">let</span> mut builder = SSTableBuilder::new(Compression::Zstd);
+    <span class="text-[var(--press-primary)]">for</span> entry <span class="text-[var(--press-primary)]">in</span> memtable.iter() {
+        builder.add_key_value(entry.key(), entry.value())?;
+    }
+
+    <span class="text-[var(--press-text-secondary)]">// 2. Compute 1% false-positive Bloom Filter</span>
+    builder.attach_bloom_filter(<span class="text-[var(--press-sage)]">0.01</span>);
+    builder.finish_sync(l0_dest)
+}</code></pre>
+      </div>
+
+      <p>
+        Once the memory budget is reached, the in-memory buffer is flushed to Level 0 (L0) on disk as an immutable Sorted String Table (SSTable). Notice how zero random seeking occurs: the disk write head is engaged in continuous streaming write throughput, maximizing hardware bandwidth.
+      </p>
+
+      <h2>Evaluating Vector Storage Extensions</h2>
+
+      <p>
+        When we extend this paradigm to dense embedding vectors—such as 1536-dimensional float vectors generated by multimodal LLMs—traditional tiered compaction requires specialized distance-aware indexing. In our next installment, we will inspect the SIMD AVX-512 quantization routines that allow pgvector and Qdrant to traverse HNSW graphs over tiered SSTables.
+      </p>
+    </div>
+
+    <!-- Article Footer & Navigation -->
+    <footer class="pt-8 border-t border-[var(--press-border)] space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 press-card bg-[var(--press-bg-subtle)]">
+        <div>
+          <div class="text-xs font-mono-press text-[var(--press-text-secondary)] uppercase">Published by</div>
+          <div class="font-serif-press font-semibold text-base text-[var(--press-text-primary)]">Ali's Computational Research Vault</div>
+          <div class="text-xs text-[var(--press-text-secondary)] font-serif-press">Exploring the intersection of distributed systems and machine intelligence.</div>
+        </div>
+        <button class="bg-[var(--press-primary)] hover:bg-[var(--press-primary-hover)] text-white text-xs font-medium px-4 py-2 rounded-lg transition shrink-0">
+          Subscribe via RSS
+        </button>
+      </div>
+
+      <div class="flex justify-between items-center text-xs font-mono-press text-[var(--press-text-secondary)] pt-2">
+        <a href="#" class="hover:text-[var(--press-primary)] transition flex items-center gap-1">
+          ← Previous: Quantized Attention Heads
+        </a>
+        <a href="#" class="hover:text-[var(--press-primary)] transition flex items-center gap-1">
+          Next: Raft Pre-Commit Log Reordering →
+        </a>
+      </div>
+    </footer>
+
+  </article>
+
+</body>
+</html>

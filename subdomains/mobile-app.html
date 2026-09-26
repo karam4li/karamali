@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Recipe Store — The Quiet Press</title>
+  <link rel="stylesheet" href="../tokens/variables.css">
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <script src="../components/ecosystem-nav.js"></script>
+  <style>
+    body {
+      background-color: var(--press-bg);
+      color: var(--press-text-primary);
+      font-family: var(--press-font-sans);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .font-serif-press { font-family: var(--press-font-serif); }
+    .font-mono-press { font-family: var(--press-font-mono); }
+    .press-card {
+      background-color: var(--press-bg-card);
+      border: 1px solid var(--press-border);
+      border-radius: var(--press-radius-lg);
+    }
+    /* Mobile Device Mockup Frame */
+    .mobile-frame {
+      width: 380px;
+      height: 760px;
+      border-radius: 44px;
+      border: 10px solid #1a1918;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.35);
+      background-color: var(--press-bg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased flex flex-col">
+
+  <!-- Universal Navigation Bar -->
+  <press-nav active="mobile" domain="karamali.org"></press-nav>
+
+  <main class="flex-1 flex flex-col items-center justify-center p-6 md:p-10">
+    
+    <div class="text-center space-y-2 mb-6 max-w-md">
+      <div class="inline-flex items-center gap-2 text-xs font-mono-press uppercase tracking-wider text-[var(--press-primary)] font-semibold">
+        <span>Mobile App Prototype</span>
+        <span>•</span>
+        <span>iOS &amp; Android Spec</span>
+      </div>
+      <h1 class="text-2xl md:text-3xl font-serif-press font-semibold">
+        The Baker’s Monograph
+      </h1>
+      <p class="text-xs font-serif-press italic text-[var(--press-text-secondary)]">
+        A quiet, tactile culinary recipe journal demonstrating mobile tokens, card elevations, and ingredient counters.
+      </p>
+    </div>
+
+    <!-- Phone Simulator -->
+    <div class="mobile-frame">
+      
+      <!-- iOS Status Bar & Dynamic Island -->
+      <div class="px-6 pt-3 pb-2 flex items-center justify-between text-[11px] font-mono-press text-[var(--press-text-secondary)] shrink-0 select-none">
+        <span>9:41</span>
+        <div class="w-20 h-4 bg-black rounded-full"></div>
+        <div class="flex items-center gap-1.5 text-[10px]">
+          <span>5G</span>
+          <span>100%</span>
+        </div>
+      </div>
+
+      <!-- App Header -->
+      <div class="px-5 pt-2 pb-3 flex items-center justify-between border-b border-[var(--press-border)] bg-[var(--press-bg)] shrink-0">
+        <div>
+          <span class="text-[10px] font-mono-press uppercase tracking-widest text-[var(--press-primary)]">Volume IV</span>
+          <h2 class="text-lg font-serif-press font-semibold text-[var(--press-text-primary)]">Recipe Library</h2>
+        </div>
+        <button class="w-8 h-8 rounded-full bg-[var(--press-bg-subtle)] border border-[var(--press-border)] flex items-center justify-center text-xs">
+          🔍
+        </button>
+      </div>
+
+      <!-- Scrollable App Content -->
+      <div class="flex-1 overflow-y-auto px-5 py-4 space-y-5">
+        
+        <!-- Category Filter Pills -->
+        <div class="flex gap-2 overflow-x-auto pb-1 no-scrollbar text-xs font-mono-press">
+          <button class="px-3 py-1 rounded-full bg-[var(--press-primary)] text-white shrink-0 font-medium">
+            All (18)
+          </button>
+          <button class="px-3 py-1 rounded-full bg-[var(--press-bg-subtle)] border border-[var(--press-border)] text-[var(--press-text-secondary)] shrink-0">
+            Sourdough
+          </button>
+          <button class="px-3 py-1 rounded-full bg-[var(--press-bg-subtle)] border border-[var(--press-border)] text-[var(--press-text-secondary)] shrink-0">
+            Pastry
+          </button>
+          <button class="px-3 py-1 rounded-full bg-[var(--press-bg-subtle)] border border-[var(--press-border)] text-[var(--press-text-secondary)] shrink-0">
+            Ferment
+          </button>
+        </div>
+
+        <!-- Recipe Card 1 (Featured) -->
+        <div onclick="openRecipeDrawer()" class="press-card overflow-hidden cursor-pointer hover:border-[var(--press-primary)] transition group">
+          <!-- Visual Photo Header -->
+          <div class="h-32 bg-gradient-to-tr from-stone-800 to-amber-900 relative p-3 flex flex-col justify-between text-white">
+            <span class="self-start text-[10px] font-mono-press bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded text-amber-200">
+              78% Hydration
+            </span>
+            <button onclick="event.stopPropagation(); toggleLike(this)" class="self-end w-7 h-7 rounded-full bg-black/50 backdrop-blur-xs flex items-center justify-center text-xs hover:scale-110 transition">
+              ♡
+            </button>
+          </div>
+          <!-- Body -->
+          <div class="p-3.5 space-y-1.5">
+            <div class="flex items-center justify-between text-[11px] font-mono-press text-[var(--press-text-secondary)]">
+              <span>ARTISAN BREAD</span>
+              <span class="text-[var(--press-primary)] font-bold">★ 4.9 (124)</span>
+            </div>
+            <h3 class="font-serif-press font-semibold text-base text-[var(--press-text-primary)] group-hover:text-[var(--press-primary)] transition">
+              Country Sourdough Boule
+            </h3>
+            <p class="font-serif-press text-xs text-[var(--press-text-secondary)] line-clamp-2">
+              Naturally leavened with wild yeast levain, stoneground rye, and cold-fermented for 36 hours.
+            </p>
+            <div class="flex items-center gap-3 pt-2 text-[10px] font-mono-press text-[var(--press-text-secondary)] border-t border-[var(--press-border)]">
+              <span>⏱ 36h total</span>
+              <span>•</span>
+              <span>4 ingredients</span>
+              <span>•</span>
+              <span class="text-[#788c5d]">Intermediate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recipe Card 2 -->
+        <div class="press-card p-3.5 flex gap-3 items-center cursor-pointer hover:border-[var(--press-primary)] transition">
+          <div class="w-16 h-16 rounded-lg bg-amber-900/30 border border-[var(--press-border)] flex items-center justify-center text-xl shrink-0">
+            🥐
+          </div>
+          <div class="flex-1 min-w-0 space-y-0.5">
+            <div class="text-[10px] font-mono-press text-[var(--press-text-secondary)] uppercase">Laminated Dough</div>
+            <h4 class="font-serif-press font-semibold text-sm truncate text-[var(--press-text-primary)]">
+              French Croissant au Beurre
+            </h4>
+            <div class="text-[10px] font-mono-press text-[var(--press-text-secondary)]">27 laminations • 4.5h</div>
+          </div>
+        </div>
+
+        <!-- Recipe Card 3 -->
+        <div class="press-card p-3.5 flex gap-3 items-center cursor-pointer hover:border-[var(--press-primary)] transition">
+          <div class="w-16 h-16 rounded-lg bg-stone-800/30 border border-[var(--press-border)] flex items-center justify-center text-xl shrink-0">
+            ☕
+          </div>
+          <div class="flex-1 min-w-0 space-y-0.5">
+            <div class="text-[10px] font-mono-press text-[var(--press-text-secondary)] uppercase">Slow Brew</div>
+            <h4 class="font-serif-press font-semibold text-sm truncate text-[var(--press-text-primary)]">
+              Japanese Kyoto Drip Cold Brew
+            </h4>
+            <div class="text-[10px] font-mono-press text-[var(--press-text-secondary)]">1 drop/sec • 12h extract</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Navigation Bar -->
+      <div class="px-6 py-2.5 bg-[var(--press-bg-surface)] border-t border-[var(--press-border)] flex items-center justify-between text-xs font-mono-press text-[var(--press-text-secondary)] shrink-0">
+        <button class="flex flex-col items-center gap-1 text-[var(--press-primary)] font-bold">
+          <span>📖</span>
+          <span class="text-[9px]">Journal</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 hover:text-[var(--press-text-primary)]">
+          <span>🌾</span>
+          <span class="text-[9px]">Pantry</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 hover:text-[var(--press-text-primary)]">
+          <span>⏱</span>
+          <span class="text-[9px]">Timer</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 hover:text-[var(--press-text-primary)]">
+          <span>⚙</span>
+          <span class="text-[9px]">Settings</span>
+        </button>
+      </div>
+
+      <!-- Interactive Recipe Drawer Sheet -->
+      <div id="recipeDrawer" class="absolute inset-0 bg-black/60 backdrop-blur-xs flex flex-col justify-end transition-all duration-300 hidden">
+        <div class="bg-[var(--press-bg-surface)] rounded-t-3xl max-h-[85%] flex flex-col overflow-hidden border-t border-[var(--press-border)] shadow-2xl">
+          
+          <div class="p-4 border-b border-[var(--press-border)] flex justify-between items-center shrink-0">
+            <div>
+              <span class="text-[10px] font-mono-press text-[var(--press-primary)] uppercase font-semibold">Interactive Sheet</span>
+              <h3 class="font-serif-press font-semibold text-base">Country Sourdough Boule</h3>
+            </div>
+            <button onclick="closeRecipeDrawer()" class="w-6 h-6 rounded-full bg-[var(--press-bg-subtle)] text-xs font-mono-press">✕</button>
+          </div>
+
+          <div class="p-5 overflow-y-auto space-y-4 text-xs font-sans-press">
+            <!-- Servings Scaler -->
+            <div class="flex items-center justify-between p-3 rounded-lg bg-[var(--press-bg-subtle)] border border-[var(--press-border)]">
+              <span class="font-mono-press text-[11px] text-[var(--press-text-secondary)]">Batches / Loaves</span>
+              <div class="flex items-center gap-3 font-mono-press">
+                <button onclick="adjustBatch(-1)" class="w-6 h-6 rounded border border-[var(--press-border)] bg-white text-black font-bold">-</button>
+                <span id="batchCount" class="font-bold text-sm">2</span>
+                <button onclick="adjustBatch(1)" class="w-6 h-6 rounded border border-[var(--press-border)] bg-white text-black font-bold">+</button>
+              </div>
+            </div>
+
+            <!-- Ingredients with Checkboxes -->
+            <div class="space-y-2">
+              <div class="font-mono-press text-[11px] uppercase tracking-wider text-[var(--press-text-secondary)] font-semibold">Ingredients Checklist</div>
+              <label class="flex items-center justify-between p-2 rounded hover:bg-[var(--press-bg-subtle)] cursor-pointer">
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" class="accent-[var(--press-primary)] rounded">
+                  <span class="font-serif-press text-sm">Organic Bread Flour (12.7%)</span>
+                </div>
+                <span class="font-mono-press text-[11px] text-[var(--press-primary)] font-bold" id="ingFlour">800g</span>
+              </label>
+              <label class="flex items-center justify-between p-2 rounded hover:bg-[var(--press-bg-subtle)] cursor-pointer">
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" class="accent-[var(--press-primary)] rounded">
+                  <span class="font-serif-press text-sm">Filtered Water (30°C)</span>
+                </div>
+                <span class="font-mono-press text-[11px] text-[var(--press-primary)] font-bold" id="ingWater">624g</span>
+              </label>
+              <label class="flex items-center justify-between p-2 rounded hover:bg-[var(--press-bg-subtle)] cursor-pointer">
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" class="accent-[var(--press-primary)] rounded">
+                  <span class="font-serif-press text-sm">Active Ripe Levain</span>
+                </div>
+                <span class="font-mono-press text-[11px] text-[var(--press-primary)] font-bold" id="ingLevain">160g</span>
+              </label>
+              <label class="flex items-center justify-between p-2 rounded hover:bg-[var(--press-bg-subtle)] cursor-pointer">
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" class="accent-[var(--press-primary)] rounded">
+                  <span class="font-serif-press text-sm">Fine Sea Salt</span>
+                </div>
+                <span class="font-mono-press text-[11px] text-[var(--press-primary)] font-bold" id="ingSalt">16g</span>
+              </label>
+            </div>
+
+            <!-- Start Autolyse CTA Button -->
+            <button class="w-full bg-[var(--press-primary)] hover:bg-[var(--press-primary-hover)] text-white py-2.5 rounded-lg font-mono-press font-semibold text-xs shadow-xs transition mt-2">
+              Start 45m Autolyse Timer ⏱
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    let batches = 2;
+    const baseFlour = 400;
+    const baseWater = 312;
+    const baseLevain = 80;
+    const baseSalt = 8;
+
+    function adjustBatch(delta) {
+      batches = Math.max(1, Math.min(8, batches + delta));
+      document.getElementById('batchCount').innerText = batches;
+      document.getElementById('ingFlour').innerText = (baseFlour * batches) + 'g';
+      document.getElementById('ingWater').innerText = (baseWater * batches) + 'g';
+      document.getElementById('ingLevain').innerText = (baseLevain * batches) + 'g';
+      document.getElementById('ingSalt').innerText = (baseSalt * batches) + 'g';
+    }
+
+    function openRecipeDrawer() {
+      document.getElementById('recipeDrawer').classList.remove('hidden');
+    }
+
+    function closeRecipeDrawer() {
+      document.getElementById('recipeDrawer').classList.add('hidden');
+    }
+
+    function toggleLike(btn) {
+      if (btn.innerText === '♡') {
+        btn.innerText = '♥';
+        btn.classList.add('text-red-500');
+      } else {
+        btn.innerText = '♡';
+        btn.classList.remove('text-red-500');
+      }
+    }
+  </script>
+
+</body>
+</html>

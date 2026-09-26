@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Examples Showcase — The Quiet Press</title>
+  <link rel="stylesheet" href="../tokens/variables.css">
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <script src="../components/ecosystem-nav.js"></script>
+  <style>
+    body {
+      background-color: var(--press-bg);
+      color: var(--press-text-primary);
+      font-family: var(--press-font-sans);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .font-serif-press { font-family: var(--press-font-serif); }
+    .font-mono-press { font-family: var(--press-font-mono); }
+    .press-card {
+      background-color: var(--press-bg-card);
+      border: 1px solid var(--press-border);
+      border-radius: var(--press-radius-lg);
+    }
+    iframe {
+      width: 100%;
+      height: 820px;
+      border: 1px solid var(--press-border);
+      border-radius: var(--press-radius-lg);
+      background-color: var(--press-bg);
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased flex flex-col">
+
+  <!-- Universal Ecosystem Bar -->
+  <press-nav active="examples" domain="karamali.org"></press-nav>
+
+  <main class="max-w-6xl mx-auto px-6 py-8 space-y-6 w-full flex-1 flex flex-col">
+    
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-[var(--press-border)] gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 text-xs font-mono-press uppercase tracking-wider text-[var(--press-primary)] font-semibold mb-1">
+          <span>Design System Implementation Gallery</span>
+        </div>
+        <h1 class="text-3xl font-serif-press font-semibold tracking-tight text-[var(--press-text-primary)]">
+          Real-World Product Implementations
+        </h1>
+        <p class="text-sm font-serif-press italic text-[var(--press-text-secondary)]">
+          See how The Quiet Press adapts seamlessly across 4 distinct application topologies under karamali.org.
+        </p>
+      </div>
+
+      <!-- Live Switcher Tabs -->
+      <div class="flex flex-wrap gap-1.5 p-1 press-card bg-[var(--press-bg-subtle)] text-xs font-mono-press">
+        <button onclick="loadExample('blog')" id="tab-blog" class="px-3 py-1.5 rounded-md font-semibold bg-[var(--press-bg-card)] text-[var(--press-text-primary)] shadow-xs transition">
+          1. Blog Website
+        </button>
+        <button onclick="loadExample('resume')" id="tab-resume" class="px-3 py-1.5 rounded-md text-[var(--press-text-secondary)] hover:text-[var(--press-text-primary)] transition">
+          2. Resume / CV
+        </button>
+        <button onclick="loadExample('crud')" id="tab-crud" class="px-3 py-1.5 rounded-md text-[var(--press-text-secondary)] hover:text-[var(--press-text-primary)] transition">
+          3. Model CRUD
+        </button>
+        <button onclick="loadExample('mobile-app')" id="tab-mobile-app" class="px-3 py-1.5 rounded-md text-[var(--press-text-secondary)] hover:text-[var(--press-text-primary)] transition">
+          4. Mobile Recipe Store
+        </button>
+      </div>
+    </div>
+
+    <!-- Active Example Information & Direct Link Bar -->
+    <div class="flex items-center justify-between text-xs font-mono-press px-4 py-2.5 press-card bg-[var(--press-bg-subtle)]">
+      <div class="flex items-center gap-3">
+        <span class="text-[var(--press-text-secondary)]">CURRENT TARGET:</span>
+        <span id="activeExampleLabel" class="font-bold text-[var(--press-primary)]">research.karamali.org/posts/lsm-trees</span>
+      </div>
+      <a id="externalLink" href="./blog.html" target="_blank" class="text-[var(--press-primary)] hover:underline flex items-center gap-1 font-semibold">
+        <span>Open Standalone ↗</span>
+      </a>
+    </div>
+
+    <!-- Embedded Live Preview Frame -->
+    <div class="flex-1">
+      <iframe id="previewFrame" src="./blog.html" title="Interactive Product Preview"></iframe>
+    </div>
+
+  </main>
+
+  <script>
+    const examples = {
+      'blog': { file: './blog.html', label: 'research.karamali.org/posts/lsm-trees' },
+      'resume': { file: './resume.html', label: 'cv.karamali.org/mohammed-karamali' },
+      'crud': { file: './crud.html', label: 'models.karamali.org/registry' },
+      'mobile-app': { file: './mobile-app.html', label: 'mobile.karamali.org/app-simulator' },
+    };
+
+    function loadExample(key) {
+      const ex = examples[key];
+      if (!ex) return;
+
+      document.getElementById('previewFrame').src = ex.file;
+      document.getElementById('activeExampleLabel').innerText = ex.label;
+      document.getElementById('externalLink').href = ex.file;
+
+      Object.keys(examples).forEach(k => {
+        const btn = document.getElementById('tab-' + k);
+        if (k === key) {
+          btn.className = "px-3 py-1.5 rounded-md font-semibold bg-[var(--press-bg-card)] text-[var(--press-text-primary)] shadow-xs transition";
+        } else {
+          btn.className = "px-3 py-1.5 rounded-md text-[var(--press-text-secondary)] hover:text-[var(--press-text-primary)] transition";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

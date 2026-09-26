@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model Registry — CRUD Example</title>
+  <link rel="stylesheet" href="../tokens/variables.css">
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <script src="../components/ecosystem-nav.js"></script>
+  <style>
+    body {
+      background-color: var(--press-bg);
+      color: var(--press-text-primary);
+      font-family: var(--press-font-sans);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .font-serif-press { font-family: var(--press-font-serif); }
+    .font-mono-press { font-family: var(--press-font-mono); }
+    .press-card {
+      background-color: var(--press-bg-card);
+      border: 1px solid var(--press-border);
+      border-radius: var(--press-radius-lg);
+    }
+    .press-input {
+      background-color: var(--press-bg);
+      border: 1px solid var(--press-border);
+      color: var(--press-text-primary);
+      border-radius: var(--press-radius-md);
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8125rem;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+    .press-input:focus {
+      border-color: var(--press-primary);
+      box-shadow: 0 0 0 2px var(--press-primary-subtle);
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased">
+
+  <!-- Universal Navigation Bar -->
+  <press-nav active="models" domain="karamali.org"></press-nav>
+
+  <main class="max-w-6xl mx-auto px-6 py-10 space-y-8">
+    
+    <!-- CRUD View Header -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-[var(--press-border)] gap-4">
+      <div>
+        <div class="flex items-center gap-2 text-xs font-mono-press text-[var(--press-primary)] uppercase tracking-wider font-semibold">
+          <span>Neural Registry</span>
+          <span>•</span>
+          <span>Production Checkpoints</span>
+        </div>
+        <h1 class="text-3xl font-serif-press font-semibold tracking-tight text-[var(--press-text-primary)] mt-1">
+          Model Checkpoint &amp; Weight Catalog
+        </h1>
+        <p class="text-sm font-serif-press italic text-[var(--press-text-secondary)] mt-0.5">
+          Manage, deploy, and inspect fine-tuned checkpoints and vector projection layers.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button onclick="openModal()" class="inline-flex items-center gap-1.5 bg-[var(--press-primary)] hover:bg-[var(--press-primary-hover)] text-white text-xs font-medium px-4 py-2 rounded-lg transition shadow-xs">
+          <span>+ Register Model</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Filter & Search Controls Bar -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <!-- Filter Chips -->
+      <div class="flex items-center gap-1.5 p-1 press-card bg-[var(--press-bg-subtle)] text-xs font-mono-press">
+        <button onclick="filterStatus('all')" id="tab-all" class="px-3 py-1.5 rounded-md font-semibold bg-[var(--press-bg-card)] text-[var(--press-text-primary)] shadow-xs transition">
+          All (<span id="count-all">4</span>)
+        </button>
+        <button onclick="filterStatus('production')" id="tab-production" class="px-3 py-1.5 rounded-md text-[var(--press-text-secondary)] hover:text-[var(--press-text-primary)] transition">
+          Production (<span id="count-prod">2</span>)
+        </button>
+        <button onclick="filterStatus('staging')" id="tab-staging" class="px-3 py-1.5 rounded-md text-[var(--press-text-secondary)] hover:text-[var(--press-text-primary)] transition">
+          Staging (<span id="count-stag">1</span>)
+        </button>
+        <button onclick="filterStatus('archived')" id="tab-archived" class="px-3 py-1.5 rounded-md text-[var(--press-text-secondary)] hover:text-[var(--press-text-primary)] transition">
+          Archived (<span id="count-arch">1</span>)
+        </button>
+      </div>
+
+      <!-- Search Input -->
+      <div class="w-full sm:w-64">
+        <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search model name or base..." class="w-full press-input font-mono-press">
+      </div>
+    </div>
+
+    <!-- Data Table Container -->
+    <div class="press-card overflow-hidden shadow-xs">
+      <table class="w-full text-left text-xs font-mono-press">
+        <thead class="bg-[var(--press-bg-subtle)] border-b border-[var(--press-border)] text-[var(--press-text-secondary)] text-[11px] uppercase tracking-wider">
+          <tr>
+            <th class="py-3 px-5">Model Name &amp; Checkpoint</th>
+            <th class="py-3 px-4">Architecture</th>
+            <th class="py-3 px-4">Quantization</th>
+            <th class="py-3 px-4">Val Score (MMLU)</th>
+            <th class="py-3 px-4">Status</th>
+            <th class="py-3 px-5 text-right">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="modelTableBody" class="divide-y divide-[var(--press-border)] text-[var(--press-text-primary)]">
+          <!-- Dynamically Rendered by JS -->
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <!-- Modal Dialog for Creating / Registering New Model -->
+  <div id="modalBackdrop" class="fixed inset-0 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 z-50 hidden">
+    <div class="press-card bg-[var(--press-bg-surface)] max-w-lg w-full p-6 shadow-2xl space-y-5">
+      <div class="flex items-center justify-between pb-3 border-b border-[var(--press-border)]">
+        <h3 class="text-lg font-serif-press font-semibold text-[var(--press-text-primary)]">
+          Register New Model Checkpoint
+        </h3>
+        <button onclick="closeModal()" class="text-[var(--press-text-secondary)] hover:text-[var(--press-text-primary)] text-sm">✕</button>
+      </div>
+
+      <form id="createModelForm" onsubmit="handleCreateModel(event)" class="space-y-4 text-xs font-sans-press">
+        <div>
+          <label class="block font-mono-press text-[11px] text-[var(--press-text-secondary)] uppercase mb-1">Model Name</label>
+          <input type="text" id="newModelName" required placeholder="e.g., Llama-3-70B-Instruct-v2" class="w-full press-input font-mono-press">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-mono-press text-[11px] text-[var(--press-text-secondary)] uppercase mb-1">Base Architecture</label>
+            <input type="text" id="newBaseArch" required placeholder="e.g., Transformer / MoE" class="w-full press-input font-mono-press">
+          </div>
+          <div>
+            <label class="block font-mono-press text-[11px] text-[var(--press-text-secondary)] uppercase mb-1">Quantization</label>
+            <select id="newQuant" class="w-full press-input font-mono-press">
+              <option value="FP16 Full">FP16 Full</option>
+              <option value="AWQ 4-Bit">AWQ 4-Bit</option>
+              <option value="GPTQ 8-Bit">GPTQ 8-Bit</option>
+              <option value="FP8 TensorRT">FP8 TensorRT</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-mono-press text-[11px] text-[var(--press-text-secondary)] uppercase mb-1">Validation MMLU Score</label>
+            <input type="text" id="newScore" required placeholder="e.g., 84.2%" class="w-full press-input font-mono-press">
+          </div>
+          <div>
+            <label class="block font-mono-press text-[11px] text-[var(--press-text-secondary)] uppercase mb-1">Deployment State</label>
+            <select id="newStatus" class="w-full press-input font-mono-press">
+              <option value="production">Production</option>
+              <option value="staging">Staging</option>
+              <option value="archived">Archived</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-[var(--press-border)] flex items-center justify-end gap-2">
+          <button type="button" onclick="closeModal()" class="px-4 py-2 rounded-lg border border-[var(--press-border)] text-[var(--press-text-secondary)] hover:bg-[var(--press-bg-subtle)] transition">
+            Cancel
+          </button>
+          <button type="submit" class="bg-[var(--press-primary)] hover:bg-[var(--press-primary-hover)] text-white font-medium px-4 py-2 rounded-lg transition shadow-xs">
+            Save &amp; Deploy
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CRUD Logic JavaScript -->
+  <script>
+    let models = [
+      { id: 1, name: 'Mistral-7B-Quantized-v2', base: 'Mistral / Dense', quant: 'AWQ 4-Bit', score: '72.4%', status: 'production', p99: '14ms' },
+      { id: 2, name: 'BGE-Embedding-Large-Custom', base: 'BERT / Bi-Encoder', quant: 'FP16 Full', score: '88.1%', status: 'production', p99: '6ms' },
+      { id: 3, name: 'DeepSeek-Coder-33B-Lora', base: 'DeepSeek / MoE', quant: 'FP8 TensorRT', score: '79.8%', status: 'staging', p99: '28ms' },
+      { id: 4, name: 'Llama-2-13B-Legacy', base: 'Llama-2 / Dense', quant: 'GPTQ 8-Bit', score: '61.5%', status: 'archived', p99: '42ms' },
+    ];
+
+    let currentFilter = 'all';
+
+    function renderTable() {
+      const tbody = document.getElementById('modelTableBody');
+      const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+
+      const filtered = models.filter(m => {
+        const matchesStatus = currentFilter === 'all' || m.status === currentFilter;
+        const matchesSearch = m.name.toLowerCase().includes(searchQuery) || m.base.toLowerCase().includes(searchQuery);
+        return matchesStatus && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-[var(--press-text-secondary)] font-serif-press italic">No model checkpoints found matching criteria.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(m => {
+        let badgeStyle = '';
+        if (m.status === 'production') {
+          badgeStyle = 'bg-[#788c5d]/10 text-[#788c5d] border-[#788c5d]/20';
+        } else if (m.status === 'staging') {
+          badgeStyle = 'bg-[var(--press-primary-subtle)] text-[var(--press-primary)] border-[var(--press-primary)]/20';
+        } else {
+          badgeStyle = 'bg-[var(--press-bg-subtle)] text-[var(--press-text-secondary)] border-[var(--press-border)]';
+        }
+
+        return `
+          <tr class="hover:bg-[var(--press-bg-subtle)]/40 transition">
+            <td class="py-3.5 px-5">
+              <div class="font-bold text-[var(--press-text-primary)]">${m.name}</div>
+              <div class="text-[10px] text-[var(--press-text-secondary)]">checkpoint_id: sha256_${m.id}9f0c2a</div>
+            </td>
+            <td class="py-3.5 px-4 text-[var(--press-text-secondary)]">${m.base}</td>
+            <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-[var(--press-bg-subtle)] border border-[var(--press-border)] text-[11px]">${m.quant}</span></td>
+            <td class="py-3.5 px-4 font-bold text-[var(--press-text-primary)]">${m.score}</td>
+            <td class="py-3.5 px-4">
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded border text-[10px] font-semibold uppercase ${badgeStyle}">
+                <span class="w-1.5 h-1.5 rounded-full ${m.status === 'production' ? 'bg-[#788c5d]' : m.status === 'staging' ? 'bg-[var(--press-primary)]' : 'bg-[var(--press-text-muted)]'}"></span>
+                ${m.status}
+              </span>
+            </td>
+            <td class="py-3.5 px-5 text-right space-x-2">
+              <button onclick="deleteModel(${m.id})" class="text-red-500 hover:underline">Delete</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      updateCounts();
+    }
+
+    function updateCounts() {
+      document.getElementById('count-all').innerText = models.length;
+      document.getElementById('count-prod').innerText = models.filter(m => m.status === 'production').length;
+      document.getElementById('count-stag').innerText = models.filter(m => m.status === 'staging').length;
+      document.getElementById('count-arch').innerText = models.filter(m => m.status === 'archived').length;
+    }
+
+    function filterStatus(status) {
+      currentFilter = status;
+      ['all', 'production', 'staging', 'archived'].forEach(s => {
+        const btn = document.getElementById('tab-' + s);
+        if (s === status) {
+          btn.className = "px-3 py-1.5 rounded-md font-semibold bg-[var(--press-bg-card)] text-[var(--press-text-primary)] shadow-xs transition";
+        } else {
+          btn.className = "px-3 py-1.5 rounded-md text-[var(--press-text-secondary)] hover:text-[var(--press-text-primary)] transition";
+        }
+      });
+      renderTable();
+    }
+
+    function handleSearch() {
+      renderTable();
+    }
+
+    function deleteModel(id) {
+      if (confirm('Are you sure you want to de-register this model checkpoint?')) {
+        models = models.filter(m => m.id !== id);
+        renderTable();
+      }
+    }
+
+    function openModal() {
+      document.getElementById('modalBackdrop').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('modalBackdrop').classList.add('hidden');
+    }
+
+    function handleCreateModel(e) {
+      e.preventDefault();
+      const newModel = {
+        id: Date.now(),
+        name: document.getElementById('newModelName').value,
+        base: document.getElementById('newBaseArch').value,
+        quant: document.getElementById('newQuant').value,
+        score: document.getElementById('newScore').value,
+        status: document.getElementById('newStatus').value,
+        p99: '18ms'
+      };
+      models.unshift(newModel);
+      closeModal();
+      document.getElementById('createModelForm').reset();
+      renderTable();
+    }
+
+    // Initial render
+    renderTable();
+  </script>
+
+</body>
+</html>
