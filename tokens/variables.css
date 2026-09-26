@@ -49,7 +49,7 @@
 }
 
 /* Explicit Dark Mode or system dark */
-.dark, [data-theme="dark"] {
+.dark, [data-theme="dark"], html[data-color-mode="dark"] {
   --press-bg: #141413;
   --press-bg-surface: #191918;
   --press-bg-subtle: #242321;
