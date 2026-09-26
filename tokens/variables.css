@@ -1,6 +1,7 @@
 /**
  * The Quiet Press — Design System CSS Custom Properties
  * Provides semantic design tokens for light and dark modes.
+ * Infused with authentic Anthropic design assets, swatches, and navigation architecture.
  */
 
 :root {
@@ -9,15 +10,18 @@
   --press-bg-surface: #ffffff;
   --press-bg-subtle: #f0ede4;
   --press-bg-card: #ffffff;
+  --press-bg-dropdown: #f0eee6;
 
   /* Typography Colors */
   --press-text-primary: #141413;
   --press-text-secondary: #737168;
   --press-text-muted: #9e9b91;
+  --press-text-faded: #b0aea5;
 
   /* Borders & Dividers */
   --press-border: #e8e6dc;
   --press-border-subtle: #f2efe6;
+  --press-border-faded: rgba(20, 20, 19, 0.1);
 
   /* Primary Accent: Sky Blue */
   --press-primary: #0284c7;
@@ -26,10 +30,45 @@
   --press-sky: #0284c7;
   --press-sky-hover: #0369a1;
   --press-sky-subtle: rgba(2, 132, 199, 0.12);
+
+  /* Anthropic Warm Earthy Swatches */
+  --press-clay: #d97757;
+  --press-clay-hover: #c6613f;
+  --press-accent: #c6613f;
+  --press-peach: #ebc9b7;
+  --press-kraft: #d4a27f;
+  --press-manilla: #ebdbbc;
+  --press-oat: #e3dacc;
+
+  /* Anthropic Cool & Natural Swatches */
+  --press-olive: #788c5d;
   --press-sage: #788c5d;
+  --press-cactus: #bcd1ca;
+  --press-matcha: #ced6bf;
+  --press-mineral: #629987;
   --press-blue: #6a9bcc;
-  --press-amber: #d4973b;
+  --press-cloud: #c5d3e0;
+  --press-cloud-light: #d1cfc5;
+  --press-cloud-medium: #b0aea5;
+  --press-cloud-dark: #87867f;
+
+  /* Anthropic Editorial Vibrants */
+  --press-coral: #ebcece;
+  --press-fig: #c46686;
+  --press-orchid: #e5cada;
+  --press-plum: #827dbd;
+  --press-poppy: #de6262;
   --press-crimson: #c2534a;
+  --press-pencil: #f0ac54;
+  --press-amber: #d4973b;
+
+  /* Neutral Spectrum */
+  --press-ivory-light: #faf9f5;
+  --press-ivory-medium: #f0eee6;
+  --press-ivory-dark: #e8e6dc;
+  --press-slate-dark: #141413;
+  --press-slate-medium: #3d3d3a;
+  --press-slate-light: #5e5d59;
 
   /* Fonts */
   --press-font-serif: 'Newsreader', 'Tiempos Text', Georgia, serif;
@@ -42,25 +81,39 @@
   --press-radius-lg: 12px;
   --press-radius-xl: 16px;
   --press-radius-2xl: 20px;
+  --press-radius-full: 9999px;
+
+  /* Navigation Dimension Tokens */
+  --press-nav-height: 4.25rem;
+  --press-nav-banner-height: 2.75rem;
+  --press-nav-hamburger-thickness: 1.5px;
+  --press-nav-hamburger-gap: 5px;
+  --press-nav-dropdown-radius: 1rem;
+  --press-nav-dropdown-shadow: 0 2px 2px rgba(0, 0, 0, 0.02), 0 4px 6px rgba(0, 0, 0, 0.03), 0 16px 28px rgba(0, 0, 0, 0.06);
 
   /* Elevation */
   --press-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
   --press-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --press-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --press-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
 }
 
 /* Explicit Dark Mode or system dark */
-.dark, [data-theme="dark"], html[data-color-mode="dark"] {
+.dark, [data-theme="dark"] {
   --press-bg: #141413;
   --press-bg-surface: #191918;
   --press-bg-subtle: #242321;
   --press-bg-card: #1c1b19;
+  --press-bg-dropdown: #201f1d;
 
   --press-text-primary: #faf9f5;
   --press-text-secondary: #b0aea5;
   --press-text-muted: #737168;
+  --press-text-faded: #5e5d59;
 
   --press-border: #2e2d2a;
   --press-border-subtle: #242320;
+  --press-border-faded: rgba(250, 249, 245, 0.1);
 
   /* Primary Accent: Sky Blue (Night Luminous) */
   --press-primary: #38bdf8;
@@ -69,11 +122,263 @@
   --press-sky: #38bdf8;
   --press-sky-hover: #7dd3fc;
   --press-sky-subtle: rgba(56, 189, 248, 0.18);
-  --press-sage: #8da46e;
-  --press-blue: #7ba8d6;
-  --press-amber: #e0a648;
-  --press-crimson: #d4635a;
 
+  /* Anthropic Earthy in Night Mode */
+  --press-clay: #e08b6f;
+  --press-clay-hover: #f0a38b;
+  --press-accent: #e08b6f;
+  --press-peach: #5a3c2c;
+  --press-kraft: #4a3424;
+  --press-manilla: #3e382b;
+  --press-oat: #33302a;
+
+  /* Cool & Natural in Night Mode */
+  --press-olive: #8da46e;
+  --press-sage: #8da46e;
+  --press-cactus: #32443f;
+  --press-matcha: #3a4233;
+  --press-mineral: #456b5e;
+  --press-blue: #7ba8d6;
+  --press-cloud: #434c56;
+  --press-cloud-light: #5a5953;
+  --press-cloud-medium: #7a7972;
+  --press-cloud-dark: #a09f98;
+
+  /* Editorial Vibrants in Night Mode */
+  --press-coral: #523737;
+  --press-fig: #5c2d3d;
+  --press-orchid: #53354c;
+  --press-plum: #9b97d1;
+  --press-poppy: #e47575;
+  --press-crimson: #d4635a;
+  --press-pencil: #f3b96e;
+  --press-amber: #e0a648;
+
+  --press-nav-dropdown-shadow: 0 4px 6px rgba(0, 0, 0, 0.4), 0 16px 28px rgba(0, 0, 0, 0.6);
   --press-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --press-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --press-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+  --press-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
+
+  /* Benchmark Tokens (Night) */
+  --press-bench-highlight: #463026;
+  --press-bench-highlight-ink: #f5cfbc;
+  --press-bench-rival: #262522;
+  --press-bench-rival-ink: #d1cfc5;
+}
+
+/* ==========================================================================
+   Anthropic Opus 5.5 Component Styles & Primitives
+   ========================================================================== */
+
+/* 1. Literary Ink-Bleed / Letterpress Filter */
+.press-ink-bleed {
+  filter: url(#press-ink-bleed);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 2. Anthropic BenchmarkGrid Evaluation Matrix */
+.press-benchmark-figure {
+  width: 100%;
+  margin: 0;
+  --grid-ink: var(--press-text-primary, #141413);
+  --grid-paper: var(--press-bg, #faf9f5);
+  --grid-muted: var(--press-text-muted, #737168);
+  --grid-highlight: var(--press-peach, #ebc9b7);
+  --grid-highlight-ink: #141413;
+  --grid-rival: var(--press-bg-subtle, #f0ede4);
+  --grid-rival-ink: var(--press-text-primary, #141413);
+  --grid-subject-edge: var(--press-clay, #d97757);
+}
+
+.press-benchmark-figure.theme-matcha {
+  --grid-highlight: var(--press-matcha, #ced6bf);
+  --grid-subject-edge: var(--press-olive, #788c5d);
+}
+
+.press-benchmark-wrap {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--grid-ink);
+  background: var(--grid-paper);
+}
+
+.press-benchmark-table {
+  width: 100%;
+  min-width: 780px;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  font-family: var(--press-font-sans, system-ui, sans-serif);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--grid-ink);
+}
+
+.press-benchmark-table th,
+.press-benchmark-table td {
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--press-border, #e8e6dc);
+  border-left: 1px solid var(--press-border, #e8e6dc);
+  text-align: left;
+  vertical-align: top;
+  height: 68px;
+  padding: 10px 14px;
+}
+
+.press-benchmark-table tr > :first-child {
+  border-left: none;
+}
+
+.press-benchmark-table thead th {
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: var(--press-bg-subtle, #f0ede4);
+  border-bottom: 1.5px solid var(--grid-ink);
+}
+
+.press-benchmark-subject {
+  border-top: 3px solid var(--grid-subject-edge) !important;
+  font-weight: 700 !important;
+  background-color: var(--press-bg-surface, #ffffff) !important;
+}
+
+.press-benchmark-label-cell {
+  width: 230px;
+  font-weight: 500;
+  background-color: var(--press-bg, #faf9f5);
+}
+
+.press-benchmark-category {
+  display: block;
+  font-size: 0.6875rem;
+  font-family: var(--press-font-mono, monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--grid-muted);
+  margin-bottom: 2px;
+}
+
+.press-benchmark-name {
+  display: block;
+  font-weight: 600;
+  color: var(--grid-ink);
+}
+
+.press-benchmark-value {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  font-family: var(--press-font-mono, monospace);
+  display: block;
+}
+
+.press-benchmark-qualifier {
+  display: block;
+  font-size: 0.6875rem;
+  font-family: var(--press-font-sans, sans-serif);
+  color: var(--grid-muted);
+  margin-top: 2px;
+}
+
+/* Benchmark Highlight Win Cells */
+.press-benchmark-win {
+  background-color: var(--grid-highlight) !important;
+  color: var(--grid-highlight-ink) !important;
+}
+
+.press-benchmark-win .press-benchmark-value {
+  font-weight: 700;
+}
+
+.press-benchmark-rival {
+  background-color: var(--grid-rival) !important;
+  color: var(--grid-rival-ink) !important;
+}
+
+/* Footnotes & Methodological Notes */
+.press-chart-note {
+  font-size: 0.75rem;
+  line-height: 1.55;
+  color: var(--press-text-secondary, #737168);
+  margin-top: 1rem;
+  padding: 0 0.5rem;
+  font-family: var(--press-font-sans, sans-serif);
+}
+
+.press-chart-note p {
+  margin-bottom: 0.5rem;
+}
+
+/* 3. Anthropic Peach Testimonial / Case Study Card */
+.press-card-peach {
+  background-color: var(--press-peach, #ebc9b7);
+  color: #141413;
+  border-radius: var(--press-radius-xl, 16px);
+  padding: 2rem;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dark .press-card-peach, [data-theme="dark"] .press-card-peach {
+  background-color: #3b2a22;
+  color: #faf9f5;
+  border: 1px solid rgba(235, 201, 183, 0.2);
+}
+
+.press-card-peach blockquote {
+  font-family: var(--press-font-serif, serif);
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0 0 1.5rem 0;
+}
+
+.press-card-peach-split {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(20, 20, 19, 0.15);
+  padding-top: 1rem;
+  font-size: 0.8125rem;
+}
+
+.dark .press-card-peach-split {
+  border-top-color: rgba(250, 249, 245, 0.15);
+}
+
+/* 4. Model Comparison Side-by-Side Prompt / Response */
+.press-comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.press-comparison-card {
+  background-color: var(--press-bg-card, #ffffff);
+  border: 1px solid var(--press-border, #e8e6dc);
+  border-radius: var(--press-radius-lg, 12px);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.press-comparison-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--press-border, #e8e6dc);
+}
+
+.press-tok-badge {
+  font-family: var(--press-font-mono, monospace);
+  font-size: 0.6875rem;
+  background-color: var(--press-bg-subtle, #f0ede4);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  color: var(--press-clay, #d97757);
 }
