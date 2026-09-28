@@ -3,840 +3,369 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Mohammed Ali — AI Software Engineer &amp; Systems Architect | karamali.org</title>
-  <meta name="description" content="Mohammed Ali — AI Software Engineer & Systems Architect. Enterprise Master Patient Indexing, Multi-Agent RAG, and Distributed Data Layers.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><rect width=%2216%22 height=%2216%22 rx=%224%22 fill=%22%230284c7%22/><text x=%228%22 y=%2211%22 font-size=%228%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22monospace%22 font-weight=%22bold%22>MA</text></svg>">
+  <title>Mohammed Ali</title>
+  <meta name="description" content="Mohammed Ali — AI Software Engineer & Systems Architect. Machine learning, enterprise data layers, and clean software.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><rect width=%2216%22 height=%2216%22 rx=%224%22 fill=%22%23d97757%22/><text x=%228%22 y=%2211%22 font-size=%228%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22monospace%22 font-weight=%22bold%22>MA</text></svg>">
   <link rel="stylesheet" href="style.css">
-  <script src="ecosystem-nav.js"></script>
 </head>
 <body>
 
-<!-- Letterpress Ink-Bleed SVG Filter Definition -->
-<svg class="press-filters" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
-  <defs>
-    <filter id="press-ink-bleed" x="-4%" y="-15%" width="108%" height="130%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="n" />
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="0.6" xChannelSelector="R" yChannelSelector="G" result="rough" />
-      <feGaussianBlur in="rough" stdDeviation="0.7" result="soft" />
-      <feComponentTransfer in="soft" result="ink"><feFuncA type="linear" slope="1.14" intercept="0" /></feComponentTransfer>
-      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="12" result="s" />
-      <feColorMatrix in="s" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -8 0 0 0 6.6" result="holes" />
-      <feComposite in="ink" in2="holes" operator="in" />
-    </filter>
-  </defs>
-</svg>
-
-<a class="skip-link" href="#systems">Skip to content</a>
-
-<!-- Universal Quiet Press In-Page Navigation -->
-<press-nav active="root" domain="karamali.org" banner="DentalOS AI EMPI &amp; KTP Radar v2.0 Live — Inspect Empirical Benchmarks →" banner-url="#benchmarks"></press-nav>
-
-<main class="editorial-shell portfolio-main">
-  
-  <!-- Hero Section -->
-  <section class="hero-section" id="top">
-    <div class="status-badge-container">
-      <span class="status-pill">
-        <span class="status-dot"></span>
-        AI Software Engineer II @ PlanetDDS • Glasgow, UK
-      </span>
-    </div>
-
-    <div class="hero-identity">
-      <h1 class="hero-name press-ink-bleed">Mohammed Ali</h1>
-      <div class="hero-title">AI Software Engineer &amp; Machine Learning Systems Architect</div>
-      <p class="hero-lead">
-        Architecting enterprise master patient indexing, autonomous multi-agent RAG workflows, and high-throughput data integration layers at scale.
-      </p>
-    </div>
-
-    <div class="hero-meta-strip">
-      <span>Glasgow, United Kingdom</span>
-      <span class="meta-dot">•</span>
-      <span>MSc Advanced CS (Distinction)</span>
-      <span class="meta-dot">•</span>
-      <span>PlanetDDS</span>
-      <span class="meta-dot">•</span>
-      <span>karamali.org</span>
-    </div>
-
-    <div class="hero-actions no-print">
-      <a href="./subdomains/resume.html" class="press-btn press-btn-primary">
-        <span>View Curriculum Vitae ↗</span>
-      </a>
-      <button id="copy-email-btn" class="press-btn press-btn-secondary" title="Click to copy email address">
-        <span>Copy Email 📋</span>
-      </button>
-      <a href="https://github.com/karam4li" target="_blank" rel="noopener" class="press-btn press-btn-secondary">
-        <span>GitHub ↗</span>
-      </a>
-      <a href="https://www.linkedin.com/in/mohammed-ali-karamali/" target="_blank" rel="noopener" class="press-btn press-btn-secondary">
-        <span>LinkedIn ↗</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- 01 // Systems & Production Architectures -->
-  <section class="editorial-section" id="systems">
-    <div class="section-kicker">01 // Production Systems</div>
-    
-    <div class="section-header-block">
-      <h2 class="section-heading">Systems in Production</h2>
-      <p class="section-subheading">Selected architectures engineered for enterprise scale, healthcare compliance, and high throughput.</p>
-    </div>
-
-    <div class="flagship-stack">
-      
-      <!-- PlanetDDS EMPI -->
-      <article class="press-card flagship-card">
-        <div class="flagship-header">
-          <div class="flagship-meta">
-            <span class="flagship-category">PlanetDDS • AI Software Engineer II</span>
-            <span>March 2026 — Present</span>
-          </div>
-          <h3 class="flagship-title">Enterprise Master Patient Index (EMPI) &amp; Foundational Data Layer</h3>
+  <!-- Header Section (Karpathy-style) -->
+  <div id="dhead" class="container">
+    <div class="row">
+      <div id="dpic">
+        <div class="avatar-frame">
+          <img src="assets/me.jpg" alt="Mohammed Ali" onerror="this.style.display='none'; document.getElementById('avatarMonogram').style.display='flex';">
+          <span class="avatar-monogram" id="avatarMonogram">MA</span>
         </div>
-        <ul class="flagship-bullets">
-          <li>Architecting a centralized Person record system to unify and reconcile patient identities across disparate dental software platforms with heterogeneous schemas.</li>
-          <li>Delivering the foundational data layer for <strong>DentalOS</strong>, enabling deterministic identity deduplication and intelligent cross-product patient experiences.</li>
-        </ul>
-        <div class="metrics-strip">
-          <div class="metric-box">
-            <span class="metric-label">Target Platform</span>
-            <span class="metric-value">DentalOS</span>
-          </div>
-          <div class="metric-box">
-            <span class="metric-label">Scope</span>
-            <span class="metric-value">Enterprise EMPI</span>
-          </div>
-          <div class="metric-box">
-            <span class="metric-label">Core Mission</span>
-            <span class="metric-value">Identity Resolution</span>
-          </div>
-        </div>
-        <div class="tag-list">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">FastAPI</span>
-          <span class="tech-tag">Identity Resolution</span>
-          <span class="tech-tag">Data Integration</span>
-          <span class="tech-tag">DentalOS</span>
-        </div>
-      </article>
-
-      <!-- Target Healthcare ReAct Agent -->
-      <article class="press-card flagship-card">
-        <div class="flagship-header">
-          <div class="flagship-meta">
-            <span class="flagship-category">Target Healthcare • Data Scientist / Analyst</span>
-            <span>November 2024 — March 2026</span>
-          </div>
-          <h3 class="flagship-title">Autonomous QMS ReAct &amp; Multi-Source RAG Agent</h3>
-        </div>
-        <ul class="flagship-bullets">
-          <li>Engineered an on-premise/VPN-secured multi-agent assistant using <strong>LangGraph, LangChain, Azure AI Foundry (OpenAI), Chainlit, and FastAPI</strong>.</li>
-          <li>Implemented autonomous ReAct loops querying MHRA regulatory standards and historical QMS archives to draft and cross-reference compliance SOPs with audit traceability.</li>
-        </ul>
-        <div class="metrics-strip">
-          <div class="metric-box">
-            <span class="metric-label">Security</span>
-            <span class="metric-value">Private VPN / Azure</span>
-          </div>
-          <div class="metric-box">
-            <span class="metric-label">Framework</span>
-            <span class="metric-value">LangGraph + FastAPI</span>
-          </div>
-          <div class="metric-box">
-            <span class="metric-label">Domain</span>
-            <span class="metric-value">MHRA Regulatory QA</span>
-          </div>
-        </div>
-        <div class="tag-list">
-          <span class="tech-tag">LangGraph</span>
-          <span class="tech-tag">LangChain</span>
-          <span class="tech-tag">Azure AI Foundry</span>
-          <span class="tech-tag">FastAPI</span>
-          <span class="tech-tag">RAG</span>
-          <span class="tech-tag">Chainlit</span>
-        </div>
-      </article>
-
-      <!-- Target Healthcare Data Lake -->
-      <article class="press-card flagship-card">
-        <div class="flagship-header">
-          <div class="flagship-meta">
-            <span class="flagship-category">Target Healthcare • Data Scientist / Analyst</span>
-            <span>November 2024 — March 2026</span>
-          </div>
-          <h3 class="flagship-title">Centralized Azure Data Lake &amp; PySpark Pipelines</h3>
-        </div>
-        <ul class="flagship-bullets">
-          <li>Consolidated multi-site QMS data into a central Azure Data Lake utilizing <strong>Azure Data Factory and Databricks (PySpark)</strong> for automated historical transformations.</li>
-          <li>Standardized corporate Power BI reporting frameworks and supported ERP dashboard migration from on-premises servers to cloud SaaS infrastructure.</li>
-        </ul>
-        <div class="metrics-strip">
-          <div class="metric-box">
-            <span class="metric-label">Processing</span>
-            <span class="metric-value">Databricks PySpark</span>
-          </div>
-          <div class="metric-box">
-            <span class="metric-label">Ingestion</span>
-            <span class="metric-value">Azure Data Factory</span>
-          </div>
-          <div class="metric-box">
-            <span class="metric-label">Analytics</span>
-            <span class="metric-value">Power BI Framework</span>
-          </div>
-        </div>
-        <div class="tag-list">
-          <span class="tech-tag">Azure Data Factory</span>
-          <span class="tech-tag">Databricks</span>
-          <span class="tech-tag">PySpark</span>
-          <span class="tech-tag">Azure Data Lake</span>
-          <span class="tech-tag">Power BI</span>
-        </div>
-      </article>
-
-      <!-- MAMA AI Drug Discovery -->
-      <article class="press-card flagship-card">
-        <div class="flagship-header">
-          <div class="flagship-meta">
-            <span class="flagship-category">MAMA AI • Applied Data Scientist (Lead)</span>
-            <span>April 2023 — December 2023</span>
-          </div>
-          <h3 class="flagship-title">Automated Drug Discovery Analytics Platform</h3>
-        </div>
-        <ul class="flagship-bullets">
-          <li>Streamlined chemical data harvesting with <strong>Playwright, Selenium, and Scrapy</strong>, cutting data processing latency by 30% via optimized ETL flows.</li>
-          <li>Constructed an interactive Streamlit intelligence suite for researchers, validated through comprehensive unit and A/B testing protocols.</li>
-        </ul>
-        <div class="metrics-strip">
-          <div class="metric-box">
-            <span class="metric-label">Performance</span>
-            <span class="metric-value">-30% Ingestion Latency</span>
-          </div>
-          <div class="metric-box">
-            <span class="metric-label">Harvesting</span>
-            <span class="metric-value">Playwright / Scrapy</span>
-          </div>
-          <div class="metric-box">
-            <span class="metric-label">Interface</span>
-            <span class="metric-value">Streamlit Suite</span>
-          </div>
-        </div>
-        <div class="tag-list">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">Playwright</span>
-          <span class="tech-tag">Scrapy</span>
-          <span class="tech-tag">Streamlit</span>
-          <span class="tech-tag">ETL</span>
-        </div>
-      </article>
-
-      <!-- Anthropic Peach DSO Enterprise Case Study Card -->
-      <article class="press-card-peach" style="margin-top: 1.5rem;">
-        <blockquote>
-          “The transition from fragmented practice databases to a unified DentalOS AI layer reduced our cross-clinic patient duplication rate from 14.8% to under 0.2%. For clinical teams reviewing periodontal histories, having a verified, instantaneous patient timeline across all 40 locations is transformative.”
-        </blockquote>
-        <div class="press-card-peach-split">
-          <div>
-            <div style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.75; font-family: var(--press-font-mono);">Organization</div>
-            <div style="font-weight: 600; font-size: 0.875rem;">PlanetDDS Enterprise Systems</div>
-          </div>
-          <div style="text-align: right;">
-            <div style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.75; font-family: var(--press-font-mono);">Systems Architect</div>
-            <div style="font-weight: 600; font-size: 0.875rem;">Mohammed Ali, AI Software Engineer II</div>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- 01.5 // Empirical Benchmarks (Claude Opus 5.5 Evaluation Spec) -->
-  <section class="editorial-section" id="benchmarks">
-    <div class="section-kicker">01.5 // Empirical Benchmarks</div>
-
-    <div class="section-header-block">
-      <div style="display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
-        <h2 class="section-heading">Empirical Architecture Benchmarks</h2>
-        <span class="status-pill" style="font-size: 0.75rem;">Anthropic Opus 5.5 Spec</span>
       </div>
-      <p class="section-subheading">Rigorous quantitative evaluations comparing our engineered platforms against industry baselines across identity resolution, discovery recall, and quantitative breakout prediction.</p>
+      <div id="ddesc">
+        <h1>Mohammed Ali</h1>
+        <h2>I like to build machine learning systems, data engines, and clean software.</h2>
+        <div id="dico">
+          <a href="https://github.com/karam4li" target="_blank" rel="noopener" class="iico-btn" title="GitHub (@karam4li)" aria-label="GitHub">
+            <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/mohammed-ali-karamali/" target="_blank" rel="noopener" class="iico-btn" title="LinkedIn" aria-label="LinkedIn">
+            <svg viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+          </a>
+          <button id="iemail" class="iico-btn" title="Click to reveal email address" aria-label="Reveal Email">
+            <svg viewBox="0 0 16 16"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.708 2.825L15 11.105V5.383zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741zM1 11.105l4.708-2.897L1 5.383v5.722z"/></svg>
+          </button>
+          <a href="./subdomains/resume.html" class="text-pill-btn" title="View Curriculum Vitae">CV</a>
+          <button id="pressThemeToggle" class="iico-btn" title="Toggle theme (or press T)" aria-label="Toggle theme">
+            <svg id="themeIconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg id="themeIconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+        </div>
+        <div id="demail"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="container">
+
+  <!-- Brief Contextual Statement (#bio) -->
+  <div id="bio" class="container">
+    <p>
+      I am an AI Software Engineer II at <a href="https://www.planetdds.com/" target="_blank" rel="noopener">PlanetDDS</a> in Glasgow, Scotland, where I am architecting the Enterprise Master Patient Index (EMPI) and foundational AI data layer for DentalOS. My work focuses on deterministic identity deduplication, vector-assisted patient matching, and consolidating clinical data across disparate platforms with heterogeneous schemas.
+    </p>
+    <p>
+      Previously, I developed private compliance RAG agents and PySpark data lake pipelines at Target Healthcare, worked on recommendation engines and drug discovery tooling at MAMA AI in Prague, and completed my MSc in Advanced Computer Science with Distinction at the University of Strathclyde, researching Generative Adversarial Networks (GANs) for satellite remote sensing.
+    </p>
+  </div>
+
+  <!-- Chronological History (#history) -->
+  <div id="history" class="container">
+    <div class="ctitle">
+      <span>career &amp; research</span>
+      <span class="ctitle-sub">chronological record</span>
     </div>
 
-    <figure class="press-benchmark-figure">
-      <div class="press-benchmark-wrap">
-        <table class="press-benchmark-table">
-          <thead>
-            <tr>
-              <th scope="col" class="press-benchmark-label-cell" style="background-color: var(--press-bg-subtle);">SYSTEM / PIPELINE</th>
-              <th scope="col" class="press-benchmark-subject">ENGINEERED ARCHITECTURE</th>
-              <th scope="col">LEGACY BASELINE</th>
-              <th scope="col">ELASTICSEARCH / OPEN SEARCH</th>
-              <th scope="col">STANDARD HEURISTICS</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row" class="press-benchmark-label-cell">
-                <span class="press-benchmark-category">DentalOS EMPI v2.4</span>
-                <span class="press-benchmark-name">F1 Identity Resolution¹</span>
-              </th>
-              <td class="press-benchmark-win">
-                <span class="press-benchmark-value">99.4%</span>
-                <span class="press-benchmark-qualifier">hybrid vector + deterministic rules</span>
-              </td>
-              <td>
-                <span class="press-benchmark-value">84.2%</span>
-                <span class="press-benchmark-qualifier">SQL string similarity</span>
-              </td>
-              <td>
-                <span class="press-benchmark-value">89.1%</span>
-                <span class="press-benchmark-qualifier">BM25 + fuzzy phonetic</span>
-              </td>
-              <td>
-                <span class="press-benchmark-value">93.5%</span>
-                <span class="press-benchmark-qualifier">Fellegi-Sunter weight matrix</span>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row" class="press-benchmark-label-cell">
-                <span class="press-benchmark-category">DentalOS EMPI v2.4</span>
-                <span class="press-benchmark-name">P99 Identity Resolution Latency²</span>
-              </th>
-              <td class="press-benchmark-win">
-                <span class="press-benchmark-value">4.2 ms</span>
-                <span class="press-benchmark-qualifier">HNSW pgvector + sharded cache</span>
-              </td>
-              <td>
-                <span class="press-benchmark-value">38.5 ms</span>
-                <span class="press-benchmark-qualifier">unindexed join scan</span>
-              </td>
-              <td>
-                <span class="press-benchmark-value">22.1 ms</span>
-                <span class="press-benchmark-qualifier">distributed cluster query</span>
-              </td>
-              <td>
-                <span class="press-benchmark-value">44.0 ms</span>
-                <span class="press-benchmark-qualifier">multi-pass pairwise scoring</span>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row" class="press-benchmark-label-cell">
-                <span class="press-benchmark-category">KTP Radar v2.0</span>
-                <span class="press-benchmark-name">UK KTP Discovery Recall³</span>
-              </th>
-              <td class="press-benchmark-win">
-                <span class="press-benchmark-value">100.0%</span>
-                <span class="press-benchmark-qualifier">Innovate UK + jobs.ac.uk + web heuristics</span>
-              </td>
-              <td>
-                <span class="press-benchmark-value">42.5%</span>
-                <span class="press-benchmark-qualifier">official InnovateUK board only</span>
-              </td>
-              <td>
-                <span class="press-benchmark-value">61.8%</span>
-                <span class="press-benchmark-qualifier">generic job board crawlers</span>
-              </td>
-              <td>
-                <span class="press-benchmark-value">54.0%</span>
-                <span class="press-benchmark-qualifier">academic RSS syndication feeds</span>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row" class="press-benchmark-label-cell">
-                <span class="press-benchmark-category">KTP Radar v2.0</span>
-                <span class="press-benchmark-name">Global Talent Visa Endorsement Accuracy⁴</span>
-              </th>
-              <td class="press-benchmark-win">
-                <span class="press-benchmark-value">98.2%</span>
-                <span class="press-benchmark-qualifier">4-tier UKRI criteria heuristic engine</span>
-              </td>
-              <td>
-                <span class="press-benchmark-value">48.1%</span>
-                <span class="press-benchmark-qualifier">raw keyword substring search</span>
-              </td>
-              <td class="press-benchmark-rival">
-                <span class="press-benchmark-value">94.0%</span>
-                <span class="press-benchmark-qualifier">manual immigration counsel review</span>
-              </td>
-              <td>
-                <span class="press-benchmark-value">71.5%</span>
-                <span class="press-benchmark-qualifier">generic LLM zero-shot prompt</span>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row" class="press-benchmark-label-cell">
-                <span class="press-benchmark-category">Volatile Stock Discovery</span>
-                <span class="press-benchmark-name">5-Day Breakout Win Rate (&gt;25% Surge)⁵</span>
-              </th>
-              <td class="press-benchmark-win">
-                <span class="press-benchmark-value">82.4%</span>
-                <span class="press-benchmark-qualifier">2-pass Rocket Score + float rotation</span>
-              </td>
-              <td>
-                <span class="press-benchmark-value">31.2%</span>
-                <span class="press-benchmark-qualifier">unfiltered momentum (&gt;5% 1-day)</span>
-              </td>
-              <td>
-                <span class="press-benchmark-value">46.8%</span>
-                <span class="press-benchmark-qualifier">volume spike &gt; 3x baseline only</span>
-              </td>
-              <td>
-                <span class="press-benchmark-value">39.1%</span>
-                <span class="press-benchmark-qualifier">standard RSI(14) oversold bounce</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- PlanetDDS -->
+    <div class="entry row current">
+      <div class="timespan">2026 – Present</div>
+      <div class="ico">
+        <div class="entry-dot"></div>
+        <div class="ico-line"></div>
       </div>
-      <figcaption class="press-chart-note">
-        <p>
-          Unless otherwise noted, all benchmarks report empirical evaluations conducted across production test environments, verifiable via public test suites and historical calibration runs.
-        </p>
-        <p>
-          <sup>1</sup><strong>DentalOS EMPI F1 Score:</strong> Evaluated against a verified gold standard of 50,000 ambiguous patient records with typographical transposition, partial name changes, and phone/address variation. Winning score highlighted in Anthropic Peach (<code>#ebc9b7</code>).
-        </p>
-        <p>
-          <sup>2</sup><strong>P99 Latency:</strong> Benchmarked on sharded PostgreSQL 16 + pgvector instances under sustained load of 2,000 concurrent identity verification queries per second.
-        </p>
-        <p>
-          <sup>3</sup><strong>KTP Discovery Recall:</strong> Evaluated across all 314 live Knowledge Transfer Partnership positions active in the United Kingdom as of September 2026.
-        </p>
-        <p>
-          <sup>4</sup><strong>Global Talent Visa Accuracy:</strong> Assessed against 150 ground-truth university appointment contracts categorized under UKRI Endorsed Funder Route eligibility criteria.
-        </p>
-        <p>
-          <sup>5</sup><strong>Volatile Stock Win Rate:</strong> Backtested and paper-traded across 3,000 NYSE/NASDAQ equities over 180 market trading days measuring 5-day post-signal forward maximum return.
-        </p>
-      </figcaption>
-    </figure>
-  </section>
-
-  <!-- 02 // Professional Trajectory -->
-  <section class="editorial-section" id="experience">
-    <div class="section-kicker">02 // Professional Trajectory</div>
-
-    <div class="section-header-block">
-      <h2 class="section-heading">Engineering Experience</h2>
-      <p class="section-subheading">Chronological record of technical roles and research appointments.</p>
+      <div class="desc">
+        <div class="desc-role">AI Software Engineer II</div>
+        <div class="desc-company">PlanetDDS — Glasgow, United Kingdom</div>
+        I am architecting and building a centralized Person record system serving as an Enterprise Master Patient Index (EMPI) across all company-owned software products. The system unifies and reconciles patient identities across disparate dental platforms with heterogeneous schemas, designing scalable data integration pipelines for deterministic deduplication, hybrid vector-assisted record matching, and foundational data services for DentalOS.
+      </div>
     </div>
 
-    <div class="timeline-container">
-      
-      <!-- PlanetDDS -->
-      <div class="timeline-item">
-        <span class="timeline-dot current"></span>
-        <div class="timeline-role">AI Software Engineer II</div>
-        <div class="timeline-meta">
-          <span class="timeline-company">PlanetDDS — Glasgow, United Kingdom</span>
-          <span class="timeline-period">March 2026 — Present</span>
-        </div>
-        <p class="timeline-desc">
-          Architecting the Enterprise Master Patient Index (EMPI) and core AI data layer for DentalOS, reconciling patient records across enterprise dental platforms.
-        </p>
+    <!-- Target Healthcare -->
+    <div class="entry row">
+      <div class="timespan">2024 – 2026</div>
+      <div class="ico">
+        <div class="entry-dot"></div>
+        <div class="ico-line"></div>
       </div>
-
-      <!-- Target Healthcare -->
-      <div class="timeline-item">
-        <span class="timeline-dot"></span>
-        <div class="timeline-role">Data Scientist / Analyst</div>
-        <div class="timeline-meta">
-          <span class="timeline-company">Target Healthcare Limited — Glasgow, United Kingdom</span>
-          <span class="timeline-period">November 2024 — March 2026</span>
-        </div>
-        <p class="timeline-desc">
-          Engineered VPN-hosted LangGraph RAG agents for MHRA SOP generation; consolidated multi-site QMS data into Azure Data Lake using Databricks PySpark.
-        </p>
+      <div class="desc">
+        <div class="desc-role">Data Scientist / Analyst</div>
+        <div class="desc-company">Target Healthcare Limited — Glasgow, United Kingdom</div>
+        I built a bespoke, private VPN-hosted multi-agent assistant using LangGraph, LangChain, Azure AI Foundry, Chainlit, and FastAPI to assist Quality Assurance officers in drafting and cross-referencing Standard Operating Procedures (SOPs) against authoritative MHRA regulatory guidelines with audit traceability. I also consolidated multi-site Quality Management System (QMS) data into a centralized Azure Data Lake using Azure Data Factory and Databricks (PySpark) for unified analytics and ERP cloud migration, and maintained corporate Power BI frameworks.
       </div>
-
-      <!-- Strathclyde Demonstrator -->
-      <div class="timeline-item">
-        <span class="timeline-dot"></span>
-        <div class="timeline-role">Laboratory Demonstrator (CS412 &amp; CS824)</div>
-        <div class="timeline-meta">
-          <span class="timeline-company">University of Strathclyde — Glasgow, United Kingdom</span>
-          <span class="timeline-period">February 2024 — January 2025</span>
-        </div>
-        <p class="timeline-desc">
-          Instructed machine learning laboratory sessions and mentored graduate cohorts on statistical model evaluation and neural architectures.
-        </p>
-      </div>
-
-      <!-- MAMA AI Applied Data Scientist -->
-      <div class="timeline-item">
-        <span class="timeline-dot"></span>
-        <div class="timeline-role">Applied Data Scientist (Technical Lead)</div>
-        <div class="timeline-meta">
-          <span class="timeline-company">MAMA AI — Remote</span>
-          <span class="timeline-period">April 2023 — December 2023</span>
-        </div>
-        <p class="timeline-desc">
-          Led technical development for a drug discovery platform (30% latency reduction), built manufacturing LLM chatbots, and backend video processing pipelines.
-        </p>
-      </div>
-
-      <!-- MAMA AI Researcher -->
-      <div class="timeline-item">
-        <span class="timeline-dot"></span>
-        <div class="timeline-role">AI Researcher</div>
-        <div class="timeline-meta">
-          <span class="timeline-company">MAMA AI — Prague, Czech Republic</span>
-          <span class="timeline-period">August 2021 — March 2023</span>
-        </div>
-        <p class="timeline-desc">
-          Maintained recommendation and ranking engines for 1M+ active users (+60% engagement uplift via A/B testing) and built acoustic speaker ID models.
-        </p>
-      </div>
-
-      <!-- Skoda Auto -->
-      <div class="timeline-item">
-        <span class="timeline-dot"></span>
-        <div class="timeline-role">Robotics Research Scholar</div>
-        <div class="timeline-meta">
-          <span class="timeline-company">Center of Robotics &amp; Autonomous Systems / Škoda Auto</span>
-          <span class="timeline-period">January 2022 — June 2022</span>
-        </div>
-        <p class="timeline-desc">
-          Constructed high-fidelity Gazebo simulation physics environments from 3D point cloud scans to validate autonomous vehicle lifting algorithms.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 03 // Research & Open Source -->
-  <section class="editorial-section" id="research">
-    <div class="section-kicker">03 // Research &amp; Code Artifacts</div>
-
-    <div class="section-header-block">
-      <h2 class="section-heading">Research &amp; Open Source</h2>
-      <p class="section-subheading">Scholarly research monographs and public computational repositories.</p>
     </div>
 
-    <div class="research-stack">
-      
-      <!-- Dissertation GANs -->
-      <article class="press-card research-card">
-        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem;">
-          <h3 class="research-title">Generative Adversarial Networks (GANs) for Cloud Removal in Satellite Imagery</h3>
-          <a href="https://github.com/karam4li/pub-cloud-removal" target="_blank" rel="noopener" class="press-btn press-btn-secondary" style="padding: 0.25rem 0.6rem; font-size: 0.75rem; min-height: 32px;">
-            <span>Code ↗</span>
+    <!-- Strathclyde Demonstrator -->
+    <div class="entry row">
+      <div class="timespan">2024 – 2025</div>
+      <div class="ico">
+        <div class="entry-dot"></div>
+        <div class="ico-line"></div>
+      </div>
+      <div class="desc">
+        <div class="desc-role">Laboratory Demonstrator (CS412 &amp; CS824)</div>
+        <div class="desc-company">University of Strathclyde — Glasgow, United Kingdom</div>
+        Instructed weekly machine learning laboratory sessions for undergraduate and postgraduate student cohorts. Guided students through practical neural network implementations, model evaluation techniques, and statistical machine learning assignments.
+      </div>
+    </div>
+
+    <!-- MAMA AI Lead -->
+    <div class="entry row">
+      <div class="timespan">2023</div>
+      <div class="ico">
+        <div class="entry-dot"></div>
+        <div class="ico-line"></div>
+      </div>
+      <div class="desc">
+        <div class="desc-role">Applied Data Scientist (Technical Lead)</div>
+        <div class="desc-company">MAMA AI — Remote</div>
+        Led technical engineering on an automated data science platform for drug discovery, streamlining web harvesting pipelines with Playwright, Selenium, and Scrapy, and building an interactive exploration suite in Streamlit that reduced harvesting processing latency by 30%. Also developed a proof-of-concept manufacturing chatbot on Azure Cloud with OpenAI/Gemini, and a B2C presentation-to-video conversion backend with Stripe integration.
+      </div>
+    </div>
+
+    <!-- MAMA AI Researcher -->
+    <div class="entry row">
+      <div class="timespan">2021 – 2023</div>
+      <div class="ico">
+        <div class="entry-dot"></div>
+        <div class="ico-line"></div>
+      </div>
+      <div class="desc">
+        <div class="desc-role">AI Researcher</div>
+        <div class="desc-company">MAMA AI — Prague, Czech Republic</div>
+        Maintained heuristic and ML recommendation algorithms (feed recommendations and push notification ranking) for a social media platform serving 1M+ active users, improving engagement by 60% as measured via A/B testing. Maintained the deployment stack using Docker, Kubernetes, Jenkins, and SQL/NoSQL databases. Built an interactive voice game for Amazon Alexa using Rasa NLU, and trained a speaker identification model with SpeechBrain for my bachelor's thesis.
+      </div>
+    </div>
+
+    <!-- Skoda Auto -->
+    <div class="entry row">
+      <div class="timespan">2022</div>
+      <div class="ico">
+        <div class="entry-dot"></div>
+        <div class="ico-line"></div>
+      </div>
+      <div class="desc">
+        <div class="desc-role">Robotics Research Scholar</div>
+        <div class="desc-company">Center of Robotics &amp; Autonomous Systems / Škoda Auto — Prague</div>
+        Selected for a competitive research appointment collaborating with Škoda Auto at the university robotics lab on an autonomous vehicle lifting system for post-manufacturing factory logistics. Constructed high-fidelity Gazebo simulation physics environments from 3D point cloud scans to validate a self-learning autonomous control algorithm.
+      </div>
+    </div>
+
+    <!-- University of Strathclyde MSc -->
+    <div class="entry row">
+      <div class="timespan">2024</div>
+      <div class="ico">
+        <div class="entry-dot"></div>
+        <div class="ico-line"></div>
+      </div>
+      <div class="desc">
+        <div class="desc-role">MSc in Advanced Computer Science (Distinction)</div>
+        <div class="desc-company">University of Strathclyde — Glasgow, United Kingdom</div>
+        Awarded the International Scholarship. Built machine learning and deep learning models using scikit-learn, TensorFlow, and PyTorch. Dissertation focused on training Generative Adversarial Networks (GANs) for cloud removal in multispectral satellite imagery.
+      </div>
+    </div>
+
+    <!-- Czech Technical University -->
+    <div class="entry row">
+      <div class="timespan">2019 – 2023</div>
+      <div class="ico">
+        <div class="entry-dot"></div>
+      </div>
+      <div class="desc">
+        <div class="desc-role">BSc in Electrical Engineering &amp; Computer Science (GPA 2:1)</div>
+        <div class="desc-company">Czech Technical University in Prague — Prague, Czech Republic</div>
+        Completed foundational engineering and computer science studies in Prague. Core coursework included Calculus, Linear Algebra, Discrete Mathematics, Machine Learning and Pattern Recognition, Signal Theory, Data Structures &amp; Algorithms, and C/Python programming. Bachelor thesis explored voice-based user validation using speaker recognition technology.
+      </div>
+    </div>
+  </div>
+
+  <!-- Projects / Pet Projects (#pet-projects) -->
+  <div id="pet-projects" class="container">
+    <div class="ctitle">
+      <span>projects &amp; code</span>
+      <span class="ctitle-sub">open source &amp; systems</span>
+    </div>
+
+    <div class="project">
+      <div class="pico">📡</div>
+      <div class="pdesc">
+        <div class="pdesc-title">
+          <a href="https://github.com/karam4li/ktp_job_scraper" target="_blank" rel="noopener">KTP Radar</a>
+          <span class="pdesc-tags">
+            <span class="ptag">FastAPI</span>
+            <span class="ptag">SQLite</span>
+            <span class="ptag">BeautifulSoup</span>
+            <span class="ptag">Vanilla JS</span>
+          </span>
+        </div>
+        A UK job discovery engine and intelligence tool tracking Knowledge Transfer Partnership (KTP) vacancies across the UK. It scrapes official Innovate UK boards, jobs.ac.uk, and web sources, automatically normalizing salary, duration, and institution data, and screens each vacancy against the 4 UKRI criteria for the Global Talent Visa (Endorsed Funder Route). Includes static deployment export for serverless hosting.
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="pico">📈</div>
+      <div class="pdesc">
+        <div class="pdesc-title">
+          <a href="https://github.com/karam4li/portfolio" target="_blank" rel="noopener">Volatile Stock Discovery Tool</a>
+          <span class="pdesc-tags">
+            <span class="ptag">Python</span>
+            <span class="ptag">yfinance</span>
+            <span class="ptag">Pandas</span>
+            <span class="ptag">Rich CLI</span>
+          </span>
+        </div>
+        A quantitative market discovery scanner built to scan ~3,000 US equities (NASDAQ/NYSE) for imminent volatility and explosive breakout setups. Implements a 2-pass filtering mechanic calculating volume explosion ratios, float rotation velocity, and Bollinger Band squeeze breakouts, rendered via a Rich terminal UI.
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="pico">⚡</div>
+      <div class="pdesc">
+        <div class="pdesc-title">
+          <a href="https://github.com/yes-parquet/bigspark_final_round" target="_blank" rel="noopener">BigSpark Analytics Challenge</a>
+          <span class="pdesc-tags">
+            <span class="ptag">Polars</span>
+            <span class="ptag">DuckDB</span>
+            <span class="ptag">Streamlit</span>
+            <span class="ptag">Plotly</span>
+          </span>
+        </div>
+        High-performance data cleaning, validation, and exploratory analytics pipelines handling dirty real-world datasets: NHS appointment delay vs. no-show Bayesian conditional probabilities, SaaS CRM cohort retention curves, and dynamic rolling Z-score eCommerce anomaly detection.
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="pico">🛰️</div>
+      <div class="pdesc">
+        <div class="pdesc-title">
+          <a href="https://github.com/karam4li/pub-cloud-removal" target="_blank" rel="noopener">Satellite Cloud Removal GAN</a>
+          <span class="pdesc-tags">
+            <span class="ptag">PyTorch</span>
+            <span class="ptag">TensorFlow</span>
+            <span class="ptag">GANs</span>
+            <span class="ptag">Remote Sensing</span>
+          </span>
+        </div>
+        Deep convolutional Generative Adversarial Networks trained to reconstruct optical ground surfaces obscured by heavy cloud cover and atmospheric haze in multispectral satellite remote sensing imagery. Developed as my MSc thesis project at the University of Strathclyde.
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="pico">🤖</div>
+      <div class="pdesc">
+        <div class="pdesc-title">
+          <span>VFS Visa Reschedule Autobooker</span>
+          <span class="pdesc-tags">
+            <span class="ptag">Playwright</span>
+            <span class="ptag">Python</span>
+            <span class="ptag">Desktop Notify</span>
+          </span>
+        </div>
+        An automated monitoring bot that polls VFS Global's UK-to-Czech Republic booking portal to find earlier appointment openings than an existing booking. Uses persistent browser profiles for session preservation, pauses gracefully on human-in-the-loop CAPTCHA challenges, and sends audible desktop notifications.
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="pico">⚙️</div>
+      <div class="pdesc">
+        <div class="pdesc-title">
+          <span>Algorithmic &amp; Classical AI Tools</span>
+          <span class="pdesc-tags">
+            <span class="ptag">NLTK</span>
+            <span class="ptag">TensorFlow</span>
+            <span class="ptag">Algorithms</span>
+          </span>
+        </div>
+        A collection of classical AI implementations including an <a href="https://github.com/ali207715/ChatBot-FastAPI" target="_blank" rel="noopener">NLTK-based chatbot</a> deployable via FastAPI, a <a href="https://github.com/ali207715/Reversi-playing-AI-agent" target="_blank" rel="noopener">Reversi AI player</a> using Minimax with alpha-beta pruning, an <a href="https://github.com/ali207715/A-star-algorithm" target="_blank" rel="noopener">A* maze pathfinder</a>, and an <a href="https://github.com/ali207715/Image-classifier" target="_blank" rel="noopener">image digit classifier</a>.
+      </div>
+    </div>
+  </div>
+
+  <!-- Publications (#publications) -->
+  <div id="publications" class="container">
+    <div class="ctitle">
+      <span>publications &amp; theses</span>
+      <span class="ctitle-sub">academic research</span>
+    </div>
+
+    <div class="pub">
+      <div class="pub-title">
+        <a href="https://github.com/karam4li/pub-cloud-removal" target="_blank" rel="noopener">Generative Adversarial Networks (GANs) for Cloud Removal in Satellite Imagery</a>
+      </div>
+      <div class="pub-venue">University of Strathclyde • MSc Dissertation (Awarded with Distinction) • 2024</div>
+      <div class="pub-authors">Mohammed Ali (Advisor: Dr. Christos Tachtatzis)</div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-title">
+        <span>Voice-Based User Validation Using Speaker Recognition Technology</span>
+      </div>
+      <div class="pub-venue">Czech Technical University in Prague &amp; MAMA AI • Bachelor Thesis (Grade B) • 2023</div>
+      <div class="pub-authors">Mohammed Ali (Advisor: Ing. Jan Švec)</div>
+    </div>
+
+    <p style="font-size: 0.875rem; color: var(--press-text-muted); margin-top: 1rem;">
+      Research code, models, and writeups are cataloged on my <a href="https://github.com/karam4li" target="_blank" rel="noopener">GitHub</a>.
+    </p>
+  </div>
+
+  <!-- Misc Unsorted (#misc) -->
+  <div id="misc" class="container">
+    <div class="ctitle">
+      <span>misc &amp; notes</span>
+      <span class="ctitle-sub">unsorted</span>
+    </div>
+
+    <ul class="misc-list">
+      <li>
+        <strong>Zero Frameworks:</strong> 0 frameworks were used to build this website. Pure HTML, CSS, and minimal vanilla JavaScript, because fast, lightweight websites are a joy to read and maintain.
+      </li>
+      <li>
+        <strong>Master Curriculum Vitae:</strong> Download my complete CV as a <a href="./Resume - Mohammed Ali.docx" download>Word Document (.docx)</a> or view the clean <a href="./subdomains/resume.html">Web CV</a>.
+      </li>
+      <li>
+        <strong>Design Philosophy:</strong> Surfaces and typography adhere to <a href="https://github.com/karam4li/design-system" target="_blank" rel="noopener">The Quiet Press</a> — Ivory Cream (<code>#faf9f5</code>) and Slate Ink (<code>#141413</code>) palette inspired by classic typography and computational editorials.
+      </li>
+      <li>
+        <strong>Ecosystem Subdomains:</strong> Check out the subdomain directory:
+        <div class="subdomains-strip">
+          <a href="https://karamali.org" class="subdomain-tag">
+            <span class="subdomain-dot"></span>
+            <span>karamali.org</span>
+          </a>
+          <a href="./subdomains/resume.html" class="subdomain-tag">
+            <span class="subdomain-dot"></span>
+            <span>cv.karamali.org</span>
+          </a>
+          <a href="./subdomains/blog.html" class="subdomain-tag">
+            <span class="subdomain-dot"></span>
+            <span>research.karamali.org</span>
+          </a>
+          <a href="./subdomains/crud.html" class="subdomain-tag">
+            <span class="subdomain-dot"></span>
+            <span>models.karamali.org</span>
           </a>
         </div>
-        <div class="research-status">University of Strathclyde • MSc Dissertation (Distinction) • Journal Submission in Prep</div>
-        <p class="research-abstract">
-          Trained deep convolutional generative adversarial networks to reconstruct ground surfaces obscured by heavy cloud cover and atmospheric haze in multispectral satellite imagery.
-        </p>
-        <div class="tag-list">
-          <span class="tech-tag">PyTorch</span>
-          <span class="tech-tag">TensorFlow</span>
-          <span class="tech-tag">GANs</span>
-          <span class="tech-tag">Computer Vision</span>
-          <span class="tech-tag">Remote Sensing</span>
-        </div>
-      </article>
-
-      <!-- Skoda Robotics -->
-      <article class="press-card research-card">
-        <h3 class="research-title">High-Fidelity Autonomous Vehicle Simulation &amp; Physics Validation</h3>
-        <div class="research-status">Center of Robotics &amp; Autonomous Systems / Škoda Auto • Research Scholar Appointment</div>
-        <p class="research-abstract">
-          Reconstructed industrial environments from 3D point cloud scans and authored XML Gazebo physics simulation models to validate self-learning autonomous vehicle control algorithms.
-        </p>
-        <div class="tag-list">
-          <span class="tech-tag">Gazebo</span>
-          <span class="tech-tag">Point Cloud Reconstruction</span>
-          <span class="tech-tag">Physics Simulation</span>
-          <span class="tech-tag">C++</span>
-        </div>
-      </article>
-
-      <!-- Voice Biometrics -->
-      <article class="press-card research-card">
-        <h3 class="research-title">Voice-Based Biometric Verification via Neural Acoustic Modeling</h3>
-        <div class="research-status">Czech Technical University &amp; MAMA AI • Bachelor's Thesis (Grade B)</div>
-        <p class="research-abstract">
-          Engineered an acoustic speaker verification and identification pipeline utilizing SpeechBrain embeddings for industrial validation specifications.
-        </p>
-        <div class="tag-list">
-          <span class="tech-tag">SpeechBrain</span>
-          <span class="tech-tag">Speaker Identification</span>
-          <span class="tech-tag">Signal Processing</span>
-          <span class="tech-tag">Python</span>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- Curated Repositories Grid -->
-    <div class="oss-grid" style="margin-top: 1rem;">
-      
-      <a href="https://github.com/ali207715/ChatBot-FastAPI" target="_blank" rel="noopener" class="press-card oss-card">
-        <div class="oss-top">
-          <span class="oss-name">ChatBot-FastAPI</span>
-          <span class="font-mono text-xs text-[var(--press-text-secondary)]">↗</span>
-        </div>
-        <p class="oss-desc">
-          Conversational AI service using NLTK statistical NLP and TensorFlow, served via FastAPI async endpoints.
-        </p>
-        <div class="oss-bottom">
-          <span class="lang-indicator">
-            <span class="lang-dot" style="background-color: #38bdf8;"></span>
-            Python
-          </span>
-          <span>FastAPI / NLTK</span>
-        </div>
-      </a>
-
-      <a href="https://github.com/ali207715/Reversi-playing-AI-agent" target="_blank" rel="noopener" class="press-card oss-card">
-        <div class="oss-top">
-          <span class="oss-name">Reversi-playing-AI-agent</span>
-          <span class="font-mono text-xs text-[var(--press-text-secondary)]">↗</span>
-        </div>
-        <p class="oss-desc">
-          Autonomous game agent implementing Min-Max search with Alpha-Beta pruning for Othello.
-        </p>
-        <div class="oss-bottom">
-          <span class="lang-indicator">
-            <span class="lang-dot" style="background-color: #38bdf8;"></span>
-            Python
-          </span>
-          <span>Min-Max / Alpha-Beta</span>
-        </div>
-      </a>
-
-      <a href="https://github.com/ali207715/A-star-algorithm" target="_blank" rel="noopener" class="press-card oss-card">
-        <div class="oss-top">
-          <span class="oss-name">A-star-algorithm</span>
-          <span class="font-mono text-xs text-[var(--press-text-secondary)]">↗</span>
-        </div>
-        <p class="oss-desc">
-          Rapid maze solver and robotic pathfinding engine implementing A* heuristic search across grid graphs.
-        </p>
-        <div class="oss-bottom">
-          <span class="lang-indicator">
-            <span class="lang-dot" style="background-color: #38bdf8;"></span>
-            Python
-          </span>
-          <span>A* Graph Search</span>
-        </div>
-      </a>
-
-      <a href="https://github.com/ali207715/Image-classifier" target="_blank" rel="noopener" class="press-card oss-card">
-        <div class="oss-top">
-          <span class="oss-name">Image-classifier</span>
-          <span class="font-mono text-xs text-[var(--press-text-secondary)]">↗</span>
-        </div>
-        <p class="oss-desc">
-          Multiclass character recognition engine using Naive Bayes and Nearest Neighbors classification.
-        </p>
-        <div class="oss-bottom">
-          <span class="lang-indicator">
-            <span class="lang-dot" style="background-color: #38bdf8;"></span>
-            Python
-          </span>
-          <span>Classification / Vision</span>
-        </div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- 04 // Technical Competencies Matrix -->
-  <section class="editorial-section" id="stack">
-    <div class="section-kicker">04 // Engineering Stack</div>
-
-    <div class="section-header-block">
-      <h2 class="section-heading">Technical Competencies</h2>
-      <p class="section-subheading">Core architectural capabilities and production tooling.</p>
-    </div>
-
-    <div class="matrix-grid">
-      
-      <div class="press-card matrix-card">
-        <div class="matrix-title">Languages &amp; Core APIs</div>
-        <div class="matrix-items">
-          <span class="matrix-pill">Python</span>
-          <span class="matrix-pill">FastAPI</span>
-          <span class="matrix-pill">Django</span>
-          <span class="matrix-pill">SQL</span>
-          <span class="matrix-pill">C / C++</span>
-          <span class="matrix-pill">TypeScript</span>
-          <span class="matrix-pill">Bash</span>
-        </div>
-      </div>
-
-      <div class="press-card matrix-card">
-        <div class="matrix-title">AI, Agents &amp; ML</div>
-        <div class="matrix-items">
-          <span class="matrix-pill">LangGraph</span>
-          <span class="matrix-pill">LangChain</span>
-          <span class="matrix-pill">Azure AI Foundry</span>
-          <span class="matrix-pill">RAG</span>
-          <span class="matrix-pill">PyTorch</span>
-          <span class="matrix-pill">TensorFlow</span>
-          <span class="matrix-pill">GANs</span>
-          <span class="matrix-pill">SpeechBrain</span>
-        </div>
-      </div>
-
-      <div class="press-card matrix-card">
-        <div class="matrix-title">Data &amp; Ingestion</div>
-        <div class="matrix-items">
-          <span class="matrix-pill">Azure Data Factory</span>
-          <span class="matrix-pill">Databricks</span>
-          <span class="matrix-pill">PySpark</span>
-          <span class="matrix-pill">Azure Data Lake</span>
-          <span class="matrix-pill">ETL / ELT</span>
-          <span class="matrix-pill">Playwright</span>
-          <span class="matrix-pill">Scrapy</span>
-        </div>
-      </div>
-
-      <div class="press-card matrix-card">
-        <div class="matrix-title">Databases &amp; Vector Stores</div>
-        <div class="matrix-items">
-          <span class="matrix-pill">PostgreSQL (pgvector)</span>
-          <span class="matrix-pill">MySQL</span>
-          <span class="matrix-pill">MongoDB</span>
-          <span class="matrix-pill">ChromaDB</span>
-          <span class="matrix-pill">CosmosDB</span>
-          <span class="matrix-pill">MSSQL</span>
-        </div>
-      </div>
-
-      <div class="press-card matrix-card">
-        <div class="matrix-title">Cloud, DevOps &amp; UI</div>
-        <div class="matrix-items">
-          <span class="matrix-pill">Azure Cloud</span>
-          <span class="matrix-pill">Docker</span>
-          <span class="matrix-pill">Kubernetes</span>
-          <span class="matrix-pill">Kafka</span>
-          <span class="matrix-pill">CI/CD</span>
-          <span class="matrix-pill">Power BI</span>
-          <span class="matrix-pill">Streamlit</span>
-        </div>
-      </div>
-
-      <div class="press-card matrix-card">
-        <div class="matrix-title">Methodologies &amp; SRE</div>
-        <div class="matrix-items">
-          <span class="matrix-pill">Identity Resolution</span>
-          <span class="matrix-pill">LLMOps / MLOps</span>
-          <span class="matrix-pill">A/B Testing</span>
-          <span class="matrix-pill">Audit Traceability</span>
-          <span class="matrix-pill">Agile</span>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Academic Credentials Embedded Cleanly Under Stack -->
-    <div class="education-stack" style="margin-top: 1.5rem;">
-      <div class="press-card education-item">
-        <div class="edu-header">
-          <div class="edu-degree">Master of Science in Advanced Computer Science — Distinction</div>
-          <span class="edu-period">2024</span>
-        </div>
-        <div class="edu-school">University of Strathclyde — Glasgow, United Kingdom • International Scholarship Recipient</div>
-        <div class="edu-dissertation">
-          <strong>Dissertation:</strong> <em>Generative Adversarial Networks (GANs) for Cloud Removal in Satellite Imagery</em>.
-        </div>
-      </div>
-
-      <div class="press-card education-item">
-        <div class="edu-header">
-          <div class="edu-degree">Bachelor of Electrical Engineering and Computer Science — 2:1</div>
-          <span class="edu-period">2019 — 2023</span>
-        </div>
-        <div class="edu-school">Czech Technical University in Prague — Prague, Czech Republic</div>
-        <div class="edu-dissertation">
-          <strong>Thesis:</strong> Voice-based user validation via speaker recognition in partnership with MAMA AI.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 05 // Contact & Correspondence -->
-  <section class="editorial-section" id="contact">
-    <div class="section-kicker">05 // Contact &amp; Correspondence</div>
-
-    <div class="section-header-block">
-      <h2 class="section-heading">Get in Touch</h2>
-      <p class="section-subheading">Open to select engineering discussions, technical advisory, and collaborative research.</p>
-    </div>
-
-    <div class="press-card" style="display: flex; flex-direction: column; gap: 1.25rem;">
-      <p style="font-family: var(--press-font-serif); font-size: 1.0625rem; line-height: 1.6; color: var(--press-text-primary);">
-        Interested in discussing enterprise data architecture, identity resolution systems, or generative AI research? Reach out directly via email or connect on LinkedIn and GitHub.
-      </p>
-
-      <div class="hero-actions" style="padding-top: 0;">
-        <button id="copy-email-contact-btn" class="press-btn press-btn-primary" title="Copy email to clipboard">
-          <span>Copy mohammed.ali.karmali@gmail.com 📋</span>
-        </button>
-        <a href="mailto:mohammed.ali.karmali@gmail.com" class="press-btn press-btn-secondary">
-          <span>Open Email Client ↗</span>
-        </a>
-        <a href="https://www.linkedin.com/in/mohammed-ali-karamali/" target="_blank" rel="noopener" class="press-btn press-btn-secondary">
-          <span>LinkedIn Profile ↗</span>
-        </a>
-        <a href="https://github.com/karam4li" target="_blank" rel="noopener" class="press-btn press-btn-secondary">
-          <span>GitHub Repositories ↗</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- Editorial Colophon & Footer -->
-<footer class="editorial-footer">
-  <div class="editorial-shell footer-inner">
-    
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <span style="display: inline-block; width: 1.25rem; height: 1.25rem; background: var(--press-primary); color: white; border-radius: 4px; text-align: center; line-height: 1.25rem; font-size: 0.65rem; font-family: var(--press-font-mono);">MA</span>
-          <span>Mohammed Ali</span>
-        </div>
-        <p class="footer-tagline">
-          AI Software Engineer &amp; Systems Architect. Built with The Quiet Press design system.
-        </p>
-      </div>
-
-      <div class="footer-links">
-        <a href="#systems" class="footer-link">Systems</a>
-        <a href="#experience" class="footer-link">Experience</a>
-        <a href="#research" class="footer-link">Research</a>
-        <a href="#stack" class="footer-link">Stack</a>
-        <a href="#contact" class="footer-link">Contact</a>
-        <a href="./subdomains/resume.html" class="footer-link">Curriculum Vitae</a>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="local-clock-indicator">
-        <span class="clock-dot"></span>
-        <span id="local-time">Loading local time…</span>
-      </div>
-      <div>
-        <a href="#top" id="back-to-top" style="color: var(--press-primary); font-weight: 500; display: inline-flex; align-items: center; gap: 0.25rem;">
-          <span>Back to Top ↑</span>
-        </a>
-      </div>
-      <div>
-        © 2026 Mohammed Ali • <a href="https://karamali.org" style="color: var(--press-primary); font-weight: 600;">karamali.org</a>
-      </div>
-    </div>
-
+      </li>
+      <li>
+        <strong>Keyboard Shortcut:</strong> Press <code>T</code> anywhere on this page to toggle between Ivory Light and Slate Ink color themes.
+      </li>
+    </ul>
   </div>
-</footer>
 
-<div id="copy-toast" class="copy-toast" role="status" aria-live="polite"></div>
+  <!-- Footer & Telemetry -->
+  <footer class="container">
+    <div>
+      <strong>Mohammed Ali</strong> • Glasgow, Scotland, UK
+    </div>
+    <div class="telemetry-item">
+      <span class="telemetry-dot"></span>
+      <span id="local-time">--:--:-- GMT (Glasgow, UK)</span>
+    </div>
+    <div>
+      Layout inspired by <a href="https://karpathy.ai/" target="_blank" rel="noopener">karpathy.ai</a>
+    </div>
+  </footer>
 
-<script src="data.js"></script>
-<script src="script.js"></script>
+  <!-- Toast Notification -->
+  <div id="copy-toast" class="copy-toast"></div>
+
+  <!-- Interaction Logic -->
+  <script src="script.js"></script>
 </body>
 </html>

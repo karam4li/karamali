@@ -1,6 +1,7 @@
 /**
  * The Quiet Press — Portfolio Client Interactions
  * Mohammed Ali (karamali.org)
+ * Layout: Andrej Karpathy Architecture (https://karpathy.ai/)
  */
 
 (function () {
@@ -17,7 +18,7 @@
         minute: "2-digit",
         second: "2-digit"
       });
-      el.textContent = formatter.format(new Date()) + " BST (Glasgow, UK)";
+      el.textContent = formatter.format(new Date()) + " (Glasgow, UK)";
     } catch (e) {
       el.textContent = new Date().toLocaleTimeString() + " (Glasgow, UK)";
     }
@@ -25,46 +26,26 @@
   updateGlasgowTime();
   setInterval(updateGlasgowTime, 1000);
 
-  /* ---------- Email Copy To Clipboard ---------- */
-  var emailAddress = "mohammed.ali.karmali@gmail.com";
+  /* ---------- Karpathy-style Email Reveal (Anti-Spam) ---------- */
+  var emailUserRot13 = "zbunzzrq.nyv.xneznyv"; // mohammed.ali.karmali in rot13
+  var emailHost = "gmail.com";
+  var isEmailRevealed = false;
+
+  function rot13(str) {
+    return str.replace(/[a-zA-Z]/g, function (c) {
+      var base = c <= 'Z' ? 65 : 97;
+      return String.fromCharCode(base + (c.charCodeAt(0) - base + 13) % 26);
+    });
+  }
+
+  var emailBtn = document.getElementById("iemail");
+  var emailBox = document.getElementById("demail");
   var copyToast = document.getElementById("copy-toast");
   var toastTimer = null;
 
-  function handleCopy(e) {
-    if (e) e.preventDefault();
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(emailAddress).then(showToast).catch(fallbackCopy);
-    } else {
-      fallbackCopy();
-    }
-  }
-
-  var copyBtnHero = document.getElementById("copy-email-btn");
-  if (copyBtnHero) copyBtnHero.addEventListener("click", handleCopy);
-
-  var copyBtnContact = document.getElementById("copy-email-contact-btn");
-  if (copyBtnContact) copyBtnContact.addEventListener("click", handleCopy);
-
-  function fallbackCopy() {
-    var textArea = document.createElement("textarea");
-    textArea.value = emailAddress;
-    textArea.style.position = "fixed";
-    textArea.style.left = "-9999px";
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-    try {
-      document.execCommand("copy");
-      showToast();
-    } catch (err) {
-      window.location.href = "mailto:" + emailAddress;
-    }
-    document.body.removeChild(textArea);
-  }
-
-  function showToast() {
+  function showToast(msg) {
     if (!copyToast) return;
-    copyToast.textContent = "Copied to clipboard: " + emailAddress;
+    copyToast.textContent = msg;
     copyToast.classList.add("visible");
     if (toastTimer) clearTimeout(toastTimer);
     toastTimer = setTimeout(function () {
@@ -72,62 +53,78 @@
     }, 2800);
   }
 
-  /* ---------- Back to Top Handler ---------- */
-  var backToTop = document.getElementById("back-to-top");
-  if (backToTop) {
-    backToTop.addEventListener("click", function (e) {
+  if (emailBtn && emailBox) {
+    emailBtn.addEventListener("click", function (e) {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      history.pushState(null, null, " ");
+      var realEmail = rot13(emailUserRot13) + "@" + emailHost;
+      
+      if (!isEmailRevealed) {
+        emailBox.innerHTML = 'Email: <a href="mailto:' + realEmail + '">' + realEmail + '</a> &bull; <button id="btnCopyEmailInline" style="background:none; border:none; color:var(--press-clay); text-decoration:underline; cursor:pointer; font-family:inherit; font-size:inherit; padding:0;">copy</button>';
+        emailBox.classList.add("is-visible");
+        isEmailRevealed = true;
+        
+        var copyBtn = document.getElementById("btnCopyEmailInline");
+        if (copyBtn) {
+          copyBtn.addEventListener("click", function () {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(realEmail).then(function () {
+                showToast("Copied email to clipboard: " + realEmail);
+              });
+            } else {
+              showToast("Email: " + realEmail);
+            }
+          });
+        }
+      } else {
+        emailBox.classList.remove("is-visible");
+        isEmailRevealed = false;
+      }
     });
   }
 
-  /* ---------- In-Page Scrollspy for Sticky Nav ---------- */
-  if ("IntersectionObserver" in window) {
-    var sections = document.querySelectorAll("section[id]");
-    var navLinks = [];
+  /* ---------- Theme Switcher (Light / Dark) ---------- */
+  var themeToggleBtn = document.getElementById("pressThemeToggle");
+  var iconSun = document.getElementById("themeIconSun");
+  var iconMoon = document.getElementById("themeIconMoon");
 
-    // Allow custom element to render before selecting
-    setTimeout(function () {
-      navLinks = document.querySelectorAll("press-nav .press-nav-link");
-      
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            var id = entry.target.getAttribute("id");
-            navLinks.forEach(function (link) {
-              var targetSection = link.getAttribute("data-section");
-              if (targetSection === id) {
-                link.classList.add("active");
-              } else {
-                link.classList.remove("active");
-              }
-            });
-          }
-        });
-      }, {
-        rootMargin: "-20% 0px -65% 0px",
-        threshold: 0
-      });
-
-      sections.forEach(function (section) {
-        observer.observe(section);
-      });
-    }, 300);
+  function getPreferredTheme() {
+    var stored = localStorage.getItem("press-theme") || localStorage.getItem("theme");
+    if (stored) return stored;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   }
 
-  /* ---------- Keyboard Shortcuts ---------- */
+  function applyTheme(theme) {
+    var isDark = theme === "dark";
+    document.documentElement.classList.toggle("dark", isDark);
+    document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
+    document.documentElement.setAttribute("data-color-mode", isDark ? "dark" : "light");
+    localStorage.setItem("press-theme", isDark ? "dark" : "light");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+
+    if (iconSun && iconMoon) {
+      iconSun.style.display = isDark ? "block" : "none";
+      iconMoon.style.display = isDark ? "none" : "block";
+    }
+  }
+
+  // Initialize theme on load
+  var currentTheme = getPreferredTheme();
+  applyTheme(currentTheme);
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener("click", function () {
+      var isDark = document.documentElement.classList.contains("dark");
+      applyTheme(isDark ? "light" : "dark");
+    });
+  }
+
+  /* ---------- Keyboard Shortcut: 'T' toggles theme ---------- */
   document.addEventListener("keydown", function (e) {
-    // Press 'T' to toggle theme (when not in an input)
     if (e.key === "t" || e.key === "T") {
       var activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : "";
       if (activeTag !== "input" && activeTag !== "textarea") {
-        var willBeDark = !document.documentElement.classList.contains("dark");
-        document.documentElement.classList.toggle("dark", willBeDark);
-        document.documentElement.setAttribute("data-theme", willBeDark ? "dark" : "light");
-        document.documentElement.setAttribute("data-color-mode", willBeDark ? "dark" : "light");
-        localStorage.setItem("press-theme", willBeDark ? "dark" : "light");
-        localStorage.setItem("theme", willBeDark ? "dark" : "light");
+        var isDark = document.documentElement.classList.contains("dark");
+        applyTheme(isDark ? "light" : "dark");
       }
     }
   });

@@ -1,281 +1,152 @@
 /**
- * The Quiet Press — Portfolio & Telemetry Data
- * Mohammed Ali (karam4li) — Systems, AI & Data Engineering
- * Source: Authenticated curriculum vitae & project monographs
+ * The Quiet Press — Portfolio & Project Data
+ * Mohammed Ali (karam4li) — AI Software Engineer
+ * Source: Master Curriculum Vitae
  */
 
 const PROFILE = {
   name: "Mohammed Ali",
   handle: "karam4li",
-  title: "AI Software Engineer & Machine Learning Systems Architect",
+  tagline: "I like to build machine learning systems, data engines, and clean software.",
+  title: "AI Software Engineer II",
+  company: "PlanetDDS",
   location: "Glasgow, United Kingdom",
   email: "mohammed.ali.karmali@gmail.com",
   github: "https://github.com/karam4li",
   linkedin: "https://www.linkedin.com/in/mohammed-ali-karamali/",
-  status: "Currently architecting DentalOS AI Data Layer & EMPI at PlanetDDS",
-  bio: "AI Software Engineer and Systems Researcher specializing in enterprise master patient indexing, multi-agent RAG architectures, and high-throughput data engineering pipelines. Experienced across distributed systems, vector retrieval, and generative vision models."
+  bio: "AI Software Engineer II at PlanetDDS architecting the Enterprise Master Patient Index (EMPI) and core data layer for DentalOS. Background in LLM compliance agents, PySpark data lakes, recommendation systems, and satellite computer vision."
 };
 
-const FLAGSHIP_SYSTEMS = [
+const CAREER_HISTORY = [
   {
-    id: "dentalos-empi",
-    title: "Enterprise Master Patient Index (EMPI) & Foundational Data Layer",
-    organization: "PlanetDDS",
-    role: "AI Software Engineer II",
-    period: "March 2026 — Present",
-    category: "Distributed Data & Identity Resolution",
-    summary: "Architecting and implementing a centralized Person record system serving as an Enterprise Master Patient Index across all company-owned dental software products.",
-    highlights: [
-      "Designed system architecture to unify and reconcile patient identities at scale across disparate software platforms with differing schemas and data quality.",
-      "Engineered automated data integration pipelines ensuring consistency, deterministic deduplication, and zero-loss identity resolution.",
-      "Delivered the foundational data layer for DentalOS, the company's new AI-first platform, enabling intelligent cross-product patient experiences."
-    ],
-    metrics: [
-      { label: "Target Platform", value: "DentalOS" },
-      { label: "Scope", value: "Enterprise Scale" },
-      { label: "Core Focus", value: "Identity Resolution" }
-    ],
-    tags: ["Python", "FastAPI", "Data Integration", "Identity Resolution", "Enterprise Architecture", "EMPI"]
-  },
-  {
-    id: "qms-react-agent",
-    title: "Autonomous QMS ReAct & Multi-Source RAG Agent",
-    organization: "Target Healthcare",
-    role: "Data Scientist / Analyst",
-    period: "November 2024 — March 2026",
-    category: "Agentic AI & Knowledge Retrieval",
-    summary: "Engineered a bespoke corporate chat agent hosted within the company's private VPN to assist Quality Assurance officers in drafting Standard Operating Procedures (SOPs).",
-    highlights: [
-      "Built a secure multi-agent system utilizing LangGraph, LangChain, Azure AI Foundry (OpenAI), Chainlit, and FastAPI.",
-      "Integrated RAG capabilities via custom data connectors indexing authoritative regulatory guidelines (e.g., MHRA) and historical internal QMS data.",
-      "Developed an autonomous ReAct loop to cross-validate drafted procedures against compliance requirements with full audit traceability."
-    ],
-    metrics: [
-      { label: "Infrastructure", value: "Private VPN / Azure" },
-      { label: "Framework", value: "LangGraph + FastAPI" },
-      { label: "Domain", value: "MHRA Regulatory QA" }
-    ],
-    tags: ["LangGraph", "LangChain", "Azure AI Foundry", "FastAPI", "Chainlit", "RAG", "Copilot Studio"]
-  },
-  {
-    id: "azure-datalake-qms",
-    title: "Centralized Azure Data Lake & PySpark Analytics Engine",
-    organization: "Target Healthcare",
-    role: "Data Scientist / Analyst",
-    period: "November 2024 — March 2026",
-    category: "Data Engineering & Analytics",
-    summary: "Consolidated multi-site Quality Management System data into a centralized corporate Azure Data Lake for unified operational intelligence and ERP cloud migration.",
-    highlights: [
-      "Architected and maintained scalable ETL/ELT pipelines using Azure Data Factory and Databricks (PySpark) for large-volume historical QMS datasets.",
-      "Designed and deployed standardized Power BI executive dashboards tracking mission-critical operational and compliance KPIs.",
-      "Supported ERP dashboard migration from legacy on-premises infrastructure to cloud SaaS environments."
-    ],
-    metrics: [
-      { label: "Processing", value: "Databricks PySpark" },
-      { label: "Pipeline", value: "Azure Data Factory" },
-      { label: "Reporting", value: "Power BI Framework" }
-    ],
-    tags: ["Azure Data Factory", "Databricks", "PySpark", "Azure Data Lake", "Power BI", "ETL/ELT"]
-  },
-  {
-    id: "drug-discovery-platform",
-    title: "Automated Drug Discovery Research Acceleration Platform",
-    organization: "MAMA AI",
-    role: "Applied Data Scientist (Technical Lead)",
-    period: "April 2023 — December 2023",
-    category: "Applied AI & Data Pipeline Engineering",
-    summary: "Led technical engineering for a high-throughput automated data science platform designed to accelerate scientific discovery in pharmaceutical chemistry.",
-    highlights: [
-      "Streamlined multi-source data extraction pipelines using Selenium, Playwright, and Scrapy, feeding automated ETL/ELT transformation flows.",
-      "Engineered an interactive analytics and exploration interface using Streamlit, validated through rigorous unit and A/B testing protocols.",
-      "Achieved a 30% reduction in data processing latency while managing milestones as technical lead."
-    ],
-    metrics: [
-      { label: "Latency Reduction", value: "-30%" },
-      { label: "Tooling", value: "Playwright / Scrapy" },
-      { label: "Interface", value: "Streamlit Suite" }
-    ],
-    tags: ["Python", "Playwright", "Selenium", "Scrapy", "Streamlit", "ETL", "A/B Testing"]
-  },
-  {
-    id: "social-recommender",
-    title: "High-Throughput Recommendation & Push Ranking Engine",
-    organization: "MAMA AI",
-    role: "AI Researcher",
-    period: "August 2021 — March 2023",
-    category: "Information Retrieval & Recommenders",
-    summary: "Deployed and maintained heuristic-based feed recommendation and push notification ranking systems for a social media platform with over 1M active users.",
-    highlights: [
-      "Achieved a 60% uplift in user engagement, verified through controlled A/B testing over iterative model releases.",
-      "Maintained production service uptime and CI/CD pipelines utilizing Docker, Kubernetes, Jenkins, and GitHub.",
-      "Managed real-time user state and item candidate retrieval across SQL and NoSQL storage tiers."
-    ],
-    metrics: [
-      { label: "Scale", value: "1M+ Users" },
-      { label: "Engagement", value: "+60% Uplift" },
-      { label: "Orchestration", value: "Kubernetes / Docker" }
-    ],
-    tags: ["Recommendation Systems", "Docker", "Kubernetes", "Jenkins", "SQL", "NoSQL", "CI/CD"]
-  }
-];
-
-const RESEARCH_WORKS = [
-  {
-    title: "Generative Adversarial Networks (GANs) for Cloud Removal in Satellite Imagery",
-    institution: "University of Strathclyde — Department of Computer & Information Sciences",
-    period: "2024",
-    status: "Master's Dissertation (Distinction) • Journal Submission in Preparation",
-    abstract: "Designed and trained deep generative adversarial networks to reconstruct optical ground surfaces obscured by cloud cover and atmospheric haze in multispectral satellite imagery, enhancing visual telemetry for downstream environmental monitoring.",
-    codeUrl: "https://github.com/karam4li/pub-cloud-removal",
-    tags: ["PyTorch", "TensorFlow", "Generative Adversarial Networks", "Satellite Remote Sensing", "Computer Vision"]
-  },
-  {
-    title: "High-Fidelity Autonomous Vehicle Simulation & Physics Validation",
-    institution: "Center of Robotics and Autonomous Systems & Škoda Auto",
-    period: "2022",
-    status: "Competitive Research Appointment",
-    abstract: "Reconstructed realistic post-manufacturing industrial environments from 3D point cloud scans and engineered detailed XML-based Gazebo physics simulations to validate self-learning autonomous control algorithms for industrial vehicle lifting systems.",
-    codeUrl: null,
-    tags: ["Gazebo", "Point Clouds", "Simulation", "Autonomous Systems", "Robotics", "C++"]
-  },
-  {
-    title: "Voice-Based Biometric Verification via Neural Acoustic Modeling",
-    institution: "Czech Technical University in Prague & MAMA AI",
-    period: "2023",
-    status: "Bachelor's Thesis (Grade B)",
-    abstract: "Engineered an end-to-end voice-based biometric user verification and speaker identification system utilizing SpeechBrain acoustic embeddings, designed to industrial specifications provided by research partner MAMA AI.",
-    codeUrl: null,
-    tags: ["SpeechBrain", "Speaker Identification", "Acoustic Modeling", "Signal Theory", "Python"]
-  }
-];
-
-const OPEN_SOURCE = [
-  {
-    name: "ChatBot-FastAPI",
-    description: "Production-ready AI chatbot integrating NLTK and TensorFlow statistical natural language processing, served with high-performance FastAPI async endpoints.",
-    language: "Python",
-    color: "#38bdf8",
-    url: "https://github.com/ali207715/ChatBot-FastAPI"
-  },
-  {
-    name: "Reversi-playing-AI-agent",
-    description: "Autonomous Reversi (Othello) game agent implementing Min-Max adversarial search with Alpha-Beta pruning and heuristic board evaluation.",
-    language: "Python",
-    color: "#38bdf8",
-    url: "https://github.com/ali207715/Reversi-playing-AI-agent"
-  },
-  {
-    name: "A-star-algorithm",
-    description: "High-performance robotic maze solver and pathfinding engine utilizing the A* heuristic search algorithm across complex grid graphs.",
-    language: "Python",
-    color: "#38bdf8",
-    url: "https://github.com/ali207715/A-star-algorithm"
-  },
-  {
-    name: "Image-classifier",
-    description: "Multiclass handwritten digit and alphabet classification engine implementing Naive Bayes and Nearest Neighbors algorithms.",
-    language: "Python",
-    color: "#38bdf8",
-    url: "https://github.com/ali207715/Image-classifier"
-  },
-  {
-    name: "pub-cloud-removal",
-    description: "Research repository containing model architectures, dataset pipelines, and evaluation routines for GAN-based cloud removal in satellite imagery.",
-    language: "Jupyter Notebook",
-    color: "#d4973b",
-    url: "https://github.com/karam4li/pub-cloud-removal"
-  }
-];
-
-const EXPERIENCE_TIMELINE = [
-  {
-    role: "AI Software Engineer II",
+    period: "2026 – Present",
+    current: true,
     company: "PlanetDDS",
     location: "Glasgow, United Kingdom",
-    period: "March 2026 — Present",
-    current: true,
-    description: "Architecting the Enterprise Master Patient Index (EMPI) and foundational AI data layer for DentalOS, unifying patient identities and data integration across enterprise dental platforms."
+    role: "AI Software Engineer II",
+    description: "Architecting and building a centralized Person record system serving as an Enterprise Master Patient Index (EMPI) across all company-owned dental software products. Unifying patient identities across disparate platforms with heterogeneous schemas, designing data integration pipelines for deterministic deduplication, hybrid vector-assisted record matching, and foundational data services for DentalOS."
   },
   {
-    role: "Data Scientist / Analyst",
+    period: "2024 – 2026",
+    current: false,
     company: "Target Healthcare Limited",
     location: "Glasgow, United Kingdom",
-    period: "November 2024 — March 2026",
-    current: false,
-    description: "Engineered bespoke VPN-hosted LangGraph RAG agents for automated SOP generation, consolidated corporate QMS data into Azure Data Lake using Databricks PySpark, and designed BI reporting frameworks."
+    role: "Data Scientist / Analyst",
+    description: "Built a bespoke, private VPN-hosted multi-agent assistant using LangGraph, LangChain, Azure AI Foundry, Chainlit, and FastAPI to assist QA officers in drafting and cross-referencing SOPs against MHRA regulatory guidelines with audit traceability. Consolidated multi-site QMS data into a centralized Azure Data Lake using Azure Data Factory and Databricks (PySpark) for unified analytics and ERP cloud migration, maintaining corporate Power BI frameworks."
   },
   {
-    role: "Laboratory Demonstrator (CS412 & CS824)",
+    period: "2024 – 2025",
+    current: false,
     company: "University of Strathclyde",
     location: "Glasgow, United Kingdom",
-    period: "February 2024 — January 2025",
-    current: false,
-    description: "Provided hands-on machine learning laboratory demonstration and assignment mentorship for undergraduate and postgraduate computer science cohorts."
+    role: "Laboratory Demonstrator (CS412 & CS824)",
+    description: "Instructed weekly machine learning laboratory sessions for undergraduate and postgraduate student cohorts. Guided students through practical neural network implementations, model evaluation techniques, and statistical machine learning assignments."
   },
   {
-    role: "Applied Data Scientist",
+    period: "2023",
+    current: false,
     company: "MAMA AI",
     location: "Remote",
-    period: "April 2023 — December 2023",
-    current: false,
-    description: "Led development of a high-throughput drug discovery data platform (30% latency reduction), built manufacturing LLM chatbots on Azure, and backend video processing pipelines."
+    role: "Applied Data Scientist (Technical Lead)",
+    description: "Led technical engineering on an automated data science platform for drug discovery, streamlining web harvesting pipelines with Playwright, Selenium, and Scrapy, and building an interactive exploration suite in Streamlit that reduced harvesting processing latency by 30%. Also developed a manufacturing chatbot on Azure Cloud with OpenAI/Gemini, and a B2C presentation-to-video conversion backend with Stripe integration."
   },
   {
-    role: "AI Researcher",
+    period: "2021 – 2023",
+    current: false,
     company: "MAMA AI",
     location: "Prague, Czech Republic",
-    period: "August 2021 — March 2023",
-    current: false,
-    description: "Maintained 1M+ user social feed recommendation and push ranking engines (+60% engagement uplift via A/B testing), conversational Rasa NLU agents, and acoustic speaker ID systems."
+    role: "AI Researcher",
+    description: "Maintained heuristic and ML recommendation algorithms (feed recommendations and push notification ranking) for a social media platform serving 1M+ active users, improving engagement by 60% as measured via A/B testing. Maintained the deployment stack using Docker, Kubernetes, Jenkins, and SQL/NoSQL databases. Built an interactive voice game for Amazon Alexa using Rasa NLU, and trained a speaker identification model with SpeechBrain for bachelor's thesis."
   },
   {
-    role: "Robotics Research Scholar",
+    period: "2022",
+    current: false,
     company: "Center of Robotics & Autonomous Systems / Škoda Auto",
     location: "Prague, Czech Republic",
-    period: "January 2022 — June 2022",
+    role: "Robotics Research Scholar",
+    description: "Selected for a competitive research appointment collaborating with Škoda Auto at the university robotics lab on an autonomous vehicle lifting system for post-manufacturing factory logistics. Constructed high-fidelity Gazebo simulation physics environments from 3D point cloud scans to validate a self-learning autonomous control algorithm."
+  },
+  {
+    period: "2024",
     current: false,
-    description: "Constructed high-fidelity Gazebo simulation physics environments from 3D point cloud scans for autonomous post-manufacturing vehicle lifting verification."
-  }
-];
-
-const EDUCATION = [
-  {
-    degree: "Master of Science in Advanced Computer Science",
-    grade: "Distinction Awarded • International Scholarship Recipient",
-    institution: "University of Strathclyde",
+    company: "University of Strathclyde",
     location: "Glasgow, United Kingdom",
-    period: "January 2024 — December 2024",
-    dissertation: "Generative Adversarial Networks (GANs) for Cloud Removal in Satellite Imagery"
+    role: "MSc in Advanced Computer Science (Distinction)",
+    description: "Awarded International Scholarship. Built machine learning and deep learning models using scikit-learn, TensorFlow, and PyTorch. Dissertation focused on Generative Adversarial Networks (GANs) for cloud removal in multispectral satellite imagery."
   },
   {
-    degree: "Bachelor of Electrical Engineering and Computer Science",
-    grade: "GPA 2:1",
-    institution: "Czech Technical University in Prague",
+    period: "2019 – 2023",
+    current: false,
+    company: "Czech Technical University in Prague",
     location: "Prague, Czech Republic",
-    period: "October 2019 — February 2023",
-    dissertation: "Voice-Based Biometric User Validation via Speaker Recognition (in partnership with MAMA AI)"
+    role: "BSc in Electrical Engineering & Computer Science (GPA 2:1)",
+    description: "Coursework in Calculus, Linear Algebra, Discrete Mathematics, Machine Learning and Pattern Recognition, Signal Theory, Data Structures & Algorithms, and C/Python programming. Bachelor thesis on voice-based user validation using speaker recognition."
   }
 ];
 
-const COMPETENCY_MATRIX = [
+const PROJECTS = [
   {
-    category: "Languages & Frameworks",
-    items: ["Python", "FastAPI", "Django", "SQL", "TypeScript / JavaScript", "C / C++", "Bash"]
+    id: "ktp-radar",
+    name: "KTP Radar",
+    tagline: "UK Job Discovery Engine & Visa Evaluator",
+    description: "Comprehensive job discovery engine and intelligence tool tracking Knowledge Transfer Partnership vacancies across the UK. Scrapes Innovate UK, jobs.ac.uk, and web sources, normalizing salary and duration, and screens vacancies against UKRI criteria for Global Talent Visa eligibility.",
+    tags: ["FastAPI", "SQLite", "BeautifulSoup", "Vanilla JS"],
+    url: "https://github.com/karam4li/ktp_job_scraper",
+    icon: "📡"
   },
   {
-    category: "AI, Agents & Machine Learning",
-    items: ["LangGraph", "LangChain", "Azure AI Foundry", "OpenAI / Gemini", "RAG Architectures", "PyTorch", "TensorFlow", "scikit-learn", "GANs", "SpeechBrain"]
+    id: "volatile-stock-discovery",
+    name: "Volatile Stock Discovery Tool",
+    tagline: "Quantitative Momentum & Volatility Scanner",
+    description: "Quantitative stock screener built in Python to scan ~3,000 US equities for imminent explosive breakout setups. Evaluates volume explosion ratios, float rotation velocity, and Bollinger Band squeeze breakouts via Rich CLI.",
+    tags: ["Python", "yfinance", "Pandas", "Rich CLI"],
+    url: "https://github.com/karam4li/portfolio",
+    icon: "📈"
   },
   {
-    category: "Data Engineering & Big Data",
-    items: ["Azure Data Factory", "Databricks", "Apache Spark (PySpark)", "Azure Data Lake", "ETL / ELT Pipelines", "Playwright", "Scrapy", "Selenium"]
+    id: "bigspark-analytics",
+    name: "BigSpark Analytics Challenge",
+    tagline: "Columnar ETL & Exploratory Analytics",
+    description: "Data cleaning, validation, and analytics pipelines handling dirty real-world datasets: NHS appointment delays vs. no-show Bayesian probabilities, SaaS CRM cohort retention curves, and rolling Z-score eCommerce anomaly detection.",
+    tags: ["Polars", "DuckDB", "Streamlit", "Plotly"],
+    url: "https://github.com/yes-parquet/bigspark_final_round",
+    icon: "⚡"
   },
   {
-    category: "Databases & Vector Storage",
-    items: ["PostgreSQL (pgvector)", "MySQL", "MongoDB", "ChromaDB", "CosmosDB", "MSSQL", "NoSQL"]
+    id: "cloud-removal-gan",
+    name: "Satellite Cloud Removal GAN",
+    tagline: "Deep Generative Image Reconstruction",
+    description: "Deep convolutional Generative Adversarial Networks trained to reconstruct optical ground surfaces obscured by heavy cloud cover and atmospheric haze in multispectral satellite imagery.",
+    tags: ["PyTorch", "TensorFlow", "GANs", "Remote Sensing"],
+    url: "https://github.com/karam4li/pub-cloud-removal",
+    icon: "🛰️"
   },
   {
-    category: "Cloud, DevOps & Observability",
-    items: ["Azure Cloud", "Docker", "Kubernetes", "Kafka", "CI/CD (GitHub Actions, Jenkins)", "Power BI", "Streamlit", "Linux Kernel"]
+    id: "visa-autobooker",
+    name: "VFS Visa Autobooker",
+    tagline: "Automated Appointment Reschedule Monitor",
+    description: "Playwright bot monitoring earlier reschedule openings on VFS Global UK->Czech Republic portal with persistent session cookies and desktop notifications.",
+    tags: ["Playwright", "Python", "Desktop Notify"],
+    url: null,
+    icon: "🤖"
   }
 ];
+
+const PUBLICATIONS = [
+  {
+    title: "Generative Adversarial Networks (GANs) for Cloud Removal in Satellite Imagery",
+    venue: "University of Strathclyde • MSc Dissertation (Distinction) • 2024",
+    authors: "Mohammed Ali (Advisor: Dr. Christos Tachtatzis)",
+    url: "https://github.com/karam4li/pub-cloud-removal"
+  },
+  {
+    title: "Voice-Based User Validation Using Speaker Recognition Technology",
+    venue: "Czech Technical University in Prague & MAMA AI • Bachelor Thesis (Grade B) • 2023",
+    authors: "Mohammed Ali (Advisor: Ing. Jan Švec)",
+    url: null
+  }
+];
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { PROFILE, CAREER_HISTORY, PROJECTS, PUBLICATIONS };
+}
